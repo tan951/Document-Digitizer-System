@@ -38,7 +38,7 @@ Each input image produces a JSON file in `json_dir`.
 **Output schema:** `schemas/preprocess.schema.json`
 
 **Important fields:**
-- `request_id`: UUID
+- `request_id`: UUIDD
 - `document_id`: per batch index
 - `status`: success | error
 - `payload.page`: page index
