@@ -1,0 +1,26 @@
+{
+  "request_id": "5796017e-420e-4e41-b88c-31f11c8effe7",
+  "document_id": "local_doc_2",
+  "module": "preprocess",
+  "version": "1.0.0",
+  "timestamp": "2026-04-28T01:35:46.082573Z",
+  "status": "success",
+  "error": null,
+  "payload": {
+    "page": 2,
+    "input_image": "data\\input\\20140603_0003_BCCTC_tg_0_1.png",
+    "output_image": "data\\output\\20140603_0003_BCCTC_tg_0_1_clean.png",
+    "width": 515,
+    "height": 51,
+    "rotation": 0,
+    "is_blank": false,
+    "blank_ratio": 0.05988958690272225,
+    "crop_applied": false,
+    "deskew_angle": 2.097808599472046,
+    "osd": {
+      "attempted": false,
+      "success": false,
+      "message": ""
+    }
+  }
+}

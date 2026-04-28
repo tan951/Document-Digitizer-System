@@ -1,0 +1,7 @@
+opencv-python
+numpy
+pyyaml
+jsonschema
+
+[dev]
+pytest

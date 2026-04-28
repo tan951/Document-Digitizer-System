@@ -1,0 +1,43 @@
+io:
+  input_dir: "./data/input"
+  output_dir: "./data/output"
+  json_dir: "./data/json"
+
+resize:
+  target_width: 2000
+
+denoise:
+  method: "fastNlMeans"
+  h: 10
+
+crop:
+  enable: true
+  min_area_ratio: 0.20
+  min_w_ratio: 0.40
+  min_h_ratio: 0.40
+  padding: 20
+
+deskew:
+  enable: true
+
+normalize:
+  method: "clahe"
+  clip_limit: 2.0
+  tile_grid: [8, 8]
+
+binarize:
+  method: "adaptive"
+  block_size: 31
+  C: 15
+
+morphology:
+  kernel: [3, 3]
+
+blank_detect:
+  threshold: 0.005
+
+osd:
+  enable: true
+  min_width: 600
+  min_height: 200
+  min_black_ratio: 0.01

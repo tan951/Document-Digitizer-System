@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "module1-preprocess"
+version = "1.0.0"
+description = "Document image preprocessing pipeline"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "opencv-python",
+  "numpy",
+  "pyyaml",
+  "jsonschema",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[project.scripts]
+module1-preprocess = "src.run:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]

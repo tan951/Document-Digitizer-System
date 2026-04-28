@@ -1,0 +1,2 @@
+[console_scripts]
+module1-preprocess = src.cli:main

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Module1Config",
+  "type": "object",
+  "required": ["io","resize","denoise","crop","deskew","normalize","binarize","morphology","blank_detect","osd"],
+  "properties": {
+    "io": {
+      "type": "object",
+      "required": ["input_dir","output_dir","json_dir"],
+      "properties": {
+        "input_dir": { "type": "string" },
+        "output_dir": { "type": "string" },
+        "json_dir": { "type": "string" }
+      }
+    },
+    "resize": {
+      "type": "object",
+      "required": ["target_width"],
+      "properties": { "target_width": { "type": "integer", "minimum": 1 } }
+    },
+    "denoise": {
+      "type": "object",
+      "properties": {
+        "method": { "type": "string" },
+        "h": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "crop": {
+      "type": "object",
+      "properties": {
+        "enable": { "type": "boolean" },
+        "min_area_ratio": { "type": "number", "minimum": 0, "maximum": 1 },
+        "min_w_ratio": { "type": "number", "minimum": 0, "maximum": 1 },
+        "min_h_ratio": { "type": "number", "minimum": 0, "maximum": 1 },
+        "padding": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "deskew": { "type": "object", "properties": { "enable": { "type": "boolean" } } },
+    "normalize": {
+      "type": "object",
+      "properties": {
+        "method": { "type": "string" },
+        "clip_limit": { "type": "number" },
+        "tile_grid": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 }
+      }
+    },
+    "binarize": {
+      "type": "object",
+      "properties": {
+        "method": { "type": "string" },
+        "block_size": { "type": "integer", "minimum": 3 },
+        "C": { "type": "integer" }
+      }
+    },
+    "morphology": { "type": "object", "properties": { "kernel": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 } } },
+    "blank_detect": { "type": "object", "properties": { "threshold": { "type": "number", "minimum": 0, "maximum": 1 } } },
+    "osd": {
+      "type": "object",
+      "properties": {
+        "enable": { "type": "boolean" },
+        "min_width": { "type": "integer", "minimum": 1 },
+        "min_height": { "type": "integer", "minimum": 1 },
+        "min_black_ratio": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

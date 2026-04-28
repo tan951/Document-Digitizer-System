@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Module1Output",
+  "type": "object",
+  "required": ["request_id","document_id","module","version","timestamp","status","payload"],
+  "properties": {
+    "request_id": { "type": "string" },
+    "document_id": { "type": "string" },
+    "module": { "type": "string" },
+    "version": { "type": "string" },
+    "timestamp": { "type": "string" },
+    "status": { "type": "string", "enum": ["success", "error"] },
+    "error": {
+      "type": ["object", "null"],
+      "properties": {
+        "code": { "type": "string" },
+        "message": { "type": "string" }
+      },
+      "required": ["code", "message"]
+    },
+    "payload": {
+      "type": "object",
+      "required": ["page","input_image","output_image","width","height","rotation","is_blank"],
+      "properties": {
+        "page": { "type": "integer" },
+        "input_image": { "type": "string" },
+        "output_image": { "type": "string" },
+        "width": { "type": "integer" },
+        "height": { "type": "integer" },
+        "rotation": { "type": "integer" },
+        "is_blank": { "type": "boolean" },
+        "blank_ratio": { "type": "number" },
+        "crop_applied": { "type": "boolean" },
+        "deskew_angle": { "type": "number" },
+        "osd": { "type": ["object","null"] }
+      }
+    }
+  }
+}
