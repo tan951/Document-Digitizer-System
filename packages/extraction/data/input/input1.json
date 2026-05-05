@@ -1,0 +1,25 @@
+{
+  "document_id": "doc_001",
+  "full_text": "CỘNG HÒA XÃ HỘI CHỦ NGHIA VIỆT NAM\nSố: 45/2026/HS-ST                    TP. Hồ Chí Minh, ngày 20 tháng 05 năm 2026\n\nVỀ VIỆC XÉT XỬ BỊ CÁO NGUYỂN VĂN A\n\nBị cáo: NGUYEN VAN A, sinh ngày 15/3/1990, \nhộ khẩu: 123 Đường ABC, Quận 1, TP.HCM\nTội danh: TROM CAP TÀI SẢN (theo Điều 173 BLHS)\nCấp án: sơ thẩm\n\nBẢN ÁN...\n[ocr noise: dấu sai, ghép từ: 'TROMCAP', extra spaces]",
+  "pages": [
+    {
+      "page_num": 1,
+      "text": "CỘNG HÒA XÃ HỘI CHỦ NGHIA VIỆT NAM\nSố: 45/2026/HS-ST                    TP. Hồ Chí Minh, ngày 20 tháng 05 năm 2026\nVỀ VIỆC XÉT XỬ BỊ CÁO NGUYỂN VĂN A",
+      "bboxes": [
+        {"text": "Số: 45/2026/HS-ST", "bbox": [50, 150, 250, 40], "conf": 0.94},
+        {"text": "TP. Hồ Chí Minh, ngày 20 tháng 05 năm 2026", "bbox": [350, 150, 350, 40], "conf": 0.91},
+        {"text": "BỊ CÁO NGUYỂN VĂN A", "bbox": [50, 250, 300, 35], "conf": 0.89}
+      ],
+      "avg_conf": 0.91
+    },
+    {
+      "page_num": 2,
+      "text": "Bị cáo: NGUYEN VAN A, sinh ngày 15/3/1990,\nTội danh: TROM CAP TÀI SẢN theo Điều 173 BLHS",
+      "bboxes": [
+        {"text": "TROM CAP TÀI SẢN", "bbox": [50, 100, 250, 30], "conf": 0.82},
+        {"text": "Điều 173 BLHS", "bbox": [320, 100, 150, 25], "conf": 0.87}
+      ],
+      "avg_conf": 0.85
+    }
+  ]
+}

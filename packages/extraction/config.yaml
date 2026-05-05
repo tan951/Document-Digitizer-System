@@ -1,0 +1,106 @@
+﻿io:
+  input_dir: "./data/input"
+  output_dir: "./data/output"
+
+extraction:
+  value_window_lines: 2
+  label_fuzzy_threshold: 0.85
+
+router:
+  templates:
+    - template_id: "toa_an"
+      document_detection:
+        keywords:
+          - "Khối Tòa án"
+          - "Tòa án nhân dân"
+        regexes:
+          - "Khối\\s*Tòa\\s*án"
+          - "Tòa\\s*án"
+      required_fields:
+        - "so_quyet_dinh"
+        - "ky_hieu"
+        - "ngay_thang_nam"
+        - "ten_co_quan_to_chuc"
+        - "ten_bi_cao"
+        - "toi_danh"
+
+    - template_id: "bao_hiem"
+      document_detection:
+        keywords:
+          - "Khối Bảo hiểm"
+          - "BHXH"
+        regexes:
+          - "Khối\\s*Bảo\\s*hiểm"
+          - "BHXH"
+      required_fields:
+        - "so_bhxh"
+        - "ky_hieu"
+        - "ngay_thang_nam"
+        - "ten_co_quan_to_chuc"
+
+fields:
+  so_quyet_dinh:
+    label_regexes:
+      - "\\bSố\\s*[:\\-]?\\s*" # Regex chuẩn hơn
+    value_strategy: "same_line"
+    value_regexes:
+      - "\\d+\\s*/\\s*\\d{4}\\s*/\\s*[A-Z\\-]+"
+    normalizer: "number_slash"
+
+  ky_hieu:
+    label_regexes:
+      - "\\bKý\\s*hiệu\\b\\s*[:\\-]?\\s*"
+      - "\\bKy\\s*hieu\\b\\s*[:\\-]?\\s*"
+    value_strategy: "same_line"
+
+  ngay_thang_nam:
+    label_regexes:
+      - "\\bNgày\\s*tháng\\s*năm\\b\\s*[:\\-]?\\s*"
+      - "\\bNgay\\s*thang\\s*nam\\b\\s*[:\\-]?\\s*"
+    value_strategy: "same_line"
+    value_regexes:
+      - "\\d{1,2}\\s*[-\\/\\.]\\s*\\d{1,2}\\s*[-\\/\\.]\\s*\\d{2,4}"
+      - "\\d{4}\\s*[-\\/\\.]\\s*\\d{1,2}\\s*[-\\/\\.]\\s*\\d{1,2}"
+    normalizer: "date_dmy_to_iso"
+
+  ten_co_quan_to_chuc:
+    label_regexes:
+      - "^Cơ\\s*quan\\s*tổ\\s*chức\\s*[:\\-]?\\s*" # Dùng dấu ^ để chỉ bắt đầu dòng
+    value_strategy: "same_line"
+    normalizer: "name_strip"
+
+  ten_bi_cao:
+    label_regexes:
+      - "Bị cáo"
+    value_strategy: "same_line"
+    value_regexes:
+      - "(?<=Bị cáo\\s)[:\\s]*([A-ZÀ-Ỹ\\s]+)"
+    normalizer: "name_strip"
+
+  toi_danh:
+    label_regexes:
+      - "Tội\\s*danh"
+    value_strategy: "same_line"
+    value_regexes:
+      - "(?<=Tội\\s*danh[:\\s]).+"
+
+  so_bhxh:
+    label_regexes:
+      - "\\bSố\\s*sổ\\s*BHXH\\b" # SIẾT CHẶT: Phải có chữ "Số sổ"
+    value_strategy: "same_line"
+    value_regexes:
+      - "\\b[0-9]{8,14}\\b" # Đảm bảo chỉ bắt dãy số, không bắt chữ
+    normalizer: "bhxh_fix_confusions"
+
+auto_correction:
+  enabled: true
+  ocr_confusions:
+    "O": "0"  # Đổi chữ O hoa thành số 0 (Đúng)
+    "o": "0"  # Đổi chữ o thường thành số 0 (Đúng)
+    "l": "1"  
+    "I": "1"  
+    # ĐÃ XÓA: "0": "O" 
+  date:
+    enabled: true
+  number:
+    enabled: true

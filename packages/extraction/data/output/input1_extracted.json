@@ -1,0 +1,98 @@
+{
+  "request_id": "4a7fd64f-5ef0-4087-9e71-5e1d90a2f736",
+  "document_id": "doc_001",
+  "timestamp": "2026-05-05T07:58:29.554821Z",
+  "status": "success",
+  "error": null,
+  "payload": {
+    "document_type": "toa_an",
+    "extracted_fields": {
+      "fixed": [
+        {
+          "field_name": "so_van_ban",
+          "value": "45/2026",
+          "confidence": 0.94,
+          "bbox": [
+            50,
+            150,
+            250,
+            40
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "ky_hieu",
+          "value": "HS-ST",
+          "confidence": 0.94,
+          "bbox": [
+            50,
+            150,
+            250,
+            40
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "ten_loai_van_ban",
+          "value": "Không xác định",
+          "confidence": 0.94,
+          "bbox": [
+            50,
+            150,
+            250,
+            40
+          ],
+          "method": "rule_mapping"
+        },
+        {
+          "field_name": "ten_co_quan_to_chuc",
+          "value": "TP. Hồ Chí Minh",
+          "confidence": 0.91,
+          "bbox": [
+            350,
+            150,
+            350,
+            40
+          ],
+          "method": "string_split"
+        }
+      ],
+      "dynamic": [
+        {
+          "field_name": "so_quyet_dinh",
+          "value": "452026",
+          "confidence": 0.94,
+          "bbox": [
+            50,
+            150,
+            250,
+            40
+          ],
+          "method": "config_regex"
+        },
+        {
+          "field_name": "ten_bi_cao",
+          "value": "NGUYỂN VĂN A",
+          "confidence": 0.89,
+          "bbox": [
+            50,
+            250,
+            300,
+            35
+          ],
+          "method": "config_regex"
+        }
+      ]
+    },
+    "correction_log": {
+      "enabled": true,
+      "changes": [
+        {
+          "original": "45/2026/HS-ST",
+          "corrected": "452026",
+          "field": "so_quyet_dinh"
+        }
+      ]
+    }
+  }
+}

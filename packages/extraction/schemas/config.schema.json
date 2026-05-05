@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Module3ExtractionConfig",
+  "type": "object",
+  "required": ["io", "extraction", "router", "fields", "auto_correction"],
+  "properties": {
+    "io": {
+      "type": "object",
+      "required": ["input_dir", "output_dir"],
+      "properties": {
+        "input_dir": { "type": "string" },
+        "output_dir": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "extraction": {
+      "type": "object",
+      "required": ["value_window_lines", "label_fuzzy_threshold"],
+      "properties": {
+        "value_window_lines": { "type": "integer", "minimum": 0, "default": 2 },
+        "label_fuzzy_threshold": { "type": "number", "minimum": 0, "maximum": 1, "default": 0.85 }
+      },
+      "additionalProperties": true
+    },
+    "router": {
+      "type": "object",
+      "required": ["templates"],
+      "properties": {
+        "templates": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["template_id", "document_detection", "required_fields"],
+            "properties": {
+              "template_id": { "type": "string" },
+              "document_detection": {
+                "type": "object",
+                "required": ["keywords", "regexes"],
+                "properties": {
+                  "keywords": { "type": "array", "items": { "type": "string" } },
+                  "regexes": { "type": "array", "items": { "type": "string" } }
+                }
+              },
+              "required_fields": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "fields": {
+      "type": "object",
+      "properties": {
+        "so_quyet_dinh": {
+          "type": "object",
+          "required": ["label_regexes", "value_strategy"],
+          "properties": {
+            "label_regexes": { "type": "array", "items": { "type": "string" } },
+            "value_strategy": { "type": "string" },
+            "value_regexes": { "type": "array", "items": { "type": "string" } },
+            "normalizer": { "type": "string" }
+          }
+        },
+        "ten_bi_cao": {
+          "type": "object",
+          "required": ["label_regexes", "value_strategy"],
+          "properties": {
+            "label_regexes": { "type": "array", "items": { "type": "string" } },
+            "value_strategy": { "type": "string" },
+            "value_regexes": { "type": "array", "items": { "type": "string" } },
+            "normalizer": { "type": "string" }
+          }
+        },
+        "toi_danh": {
+          "type": "object",
+          "required": ["label_regexes", "value_strategy"],
+          "properties": {
+            "label_regexes": { "type": "array", "items": { "type": "string" } },
+            "value_strategy": { "type": "string" },
+            "value_regexes": { "type": "array", "items": { "type": "string" } },
+            "normalizer": { "type": "string" }
+          }
+        }
+      },
+      "additionalProperties": {
+        "type": "object",
+        "required": ["label_regexes", "value_strategy"],
+        "properties": {
+          "label_regexes": { "type": "array", "items": { "type": "string" } },
+          "value_strategy": {
+            "type": "string",
+            "enum": ["same_line", "next_line", "same_or_next_line"]
+          },
+          "value_regexes": { "type": "array", "items": { "type": "string" } },
+          "normalizer": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "auto_correction": {
+      "type": "object",
+      "required": ["enabled"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "ocr_confusions": {
+          "type": "object",
+          "additionalProperties": { "type": "string" },
+          "default": { "0": "O", "l": "1" }
+        },
+        "date": {
+          "type": "object",
+          "properties": { "enabled": { "type": "boolean" } },
+          "additionalProperties": true
+        },
+        "number": {
+          "type": "object",
+          "properties": { "enabled": { "type": "boolean" } },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,67 @@
+{
+  "request_id": "70f8ae70-b392-4cc1-929f-d5e5c28a67f9",
+  "document_id": "bhxh_001",
+  "timestamp": "2026-05-05T07:58:29.566508Z",
+  "status": "success",
+  "error": null,
+  "payload": {
+    "document_type": "bao_hiem",
+    "extracted_fields": {
+      "fixed": [
+        {
+          "field_name": "so_van_ban",
+          "value": "456",
+          "confidence": 0.95,
+          "bbox": [
+            50,
+            150,
+            220,
+            40
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "ky_hieu",
+          "value": "QĐ-BHXH",
+          "confidence": 0.95,
+          "bbox": [
+            50,
+            150,
+            220,
+            40
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "ten_loai_van_ban",
+          "value": "Quyết định",
+          "confidence": 0.95,
+          "bbox": [
+            50,
+            150,
+            220,
+            40
+          ],
+          "method": "rule_mapping"
+        },
+        {
+          "field_name": "ten_co_quan_to_chuc",
+          "value": "Bến Tre",
+          "confidence": 0.93,
+          "bbox": [
+            320,
+            150,
+            350,
+            40
+          ],
+          "method": "string_split"
+        }
+      ],
+      "dynamic": []
+    },
+    "correction_log": {
+      "enabled": true,
+      "changes": []
+    }
+  }
+}

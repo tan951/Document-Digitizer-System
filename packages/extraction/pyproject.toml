@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "module3-extraction"
+version = "1.0.0"
+description = "Document field extraction (Dynamic NER & Extraction)"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "pyyaml",
+  "jsonschema",
+  "rapidfuzz",
+  "python-dateutil"
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[project.scripts]
+module3-extraction = "src.run:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+

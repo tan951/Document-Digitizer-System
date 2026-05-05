@@ -1,0 +1,7 @@
+﻿pyyaml
+jsonschema
+rapidfuzz
+python-dateutil
+pytest
+
+

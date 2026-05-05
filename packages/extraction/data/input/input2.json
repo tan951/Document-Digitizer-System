@@ -1,0 +1,26 @@
+{
+  "document_id": "bhxh_001",
+  "full_text": "CỘNG HÒA XÃ HỘI CHỦ NGHIA VIỆT NAM\nSố: 456/QĐ-BHXH                   Bến Tre, ngày 12 tháng 03 năm 2026\n\nQUYẾT ĐỊNH CẤP SỔ BHXH\n\nSố sổ BHXH: 031123456789\nMã đơn vị sử dụng lao động: BHX001234\nHọ tên người tham gia: TRÂN THỊ B, sinh 12/05/1985\nĐịa chỉ: ấp Tân Thành, xã Tân Phú, huyện Mỏ Cày Nam\nThời gian đóng: 03/2020 → 03/2026\n\nBHXH TỈNH BẾN TRE\n[ocr noise: 'TRÂN THỊ B'→'TRÇN THÞ B', 'Mỏ Cày Nam'→'Mò Cây Nam']",
+  "pages": [
+    {
+      "page_num": 1,
+      "text": "CỘNG HÒA XÃ HỘI CHỦ NGHIA VIỆT NAM\nSố: 456/QĐ-BHXH                   Bến Tre, ngày 12 tháng 03 năm 2026\nQUYẾT ĐỊNH CẤP SỔ BHXH",
+      "bboxes": [
+        {"text": "Số: 456/QĐ-BHXH", "bbox": [50, 150, 220, 40], "conf": 0.95},
+        {"text": "Bến Tre, ngày 12 tháng 03 năm 2026", "bbox": [320, 150, 350, 40], "conf": 0.93},
+        {"text": "QUYẾT ĐỊNH CẤP SỔ BHXH", "bbox": [50, 250, 400, 35], "conf": 0.90}
+      ],
+      "avg_conf": 0.93
+    },
+    {
+      "page_num": 2,
+      "text": "Số sổ BHXH: 031123456789\nMã đơn vị: BHX001234\nHọ tên: TRÇN THÞ B, sinh 12/05/1985\nĐịa chỉ: ấp Tân Thành, xã Tân Phú, Mò Cày Nam",
+      "bboxes": [
+        {"text": "031123456789", "bbox": [50, 80, 180, 30], "conf": 0.98},
+        {"text": "BHX001234", "bbox": [50, 130, 120, 25], "conf": 0.96},
+        {"text": "TRÇN THÞ B", "bbox": [50, 180, 150, 30], "conf": 0.78}
+      ],
+      "avg_conf": 0.91
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "request_id": "d29f77c1-0199-4894-b75f-07d9fe17c320",
+  "document_id": "local_doc_6",
+  "module": "preprocess",
+  "version": "1.0.0",
+  "timestamp": "2026-04-29T06:39:43.662191Z",
+  "status": "success",
+  "error": null,
+  "payload": {
+    "page": 6,
+    "input_image": "data\\input\\test2.jpg",
+    "output_image": "data\\output\\test2_clean.png",
+    "width": 1920,
+    "height": 2560,
+    "rotation": 0,
+    "is_blank": false,
+    "blank_ratio": 0.1477862548828125,
+    "crop_applied": false,
+    "deskew_angle": -0.0,
+    "osd": {
+      "attempted": true,
+      "success": false,
+      "message": "(1, 'Estimating resolution as 338 Warning. Invalid resolution 0 dpi. Using 70 instead. Too few characters. Skipping this page Error during processing.')"
+    }
+  }
+}
