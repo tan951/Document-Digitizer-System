@@ -1,0 +1,55 @@
+{
+  "request_id": "e8c0ddda-a4f7-4a5f-a44c-3d1d43398ead",
+  "document_id": "bhxh_2026_002",
+  "timestamp": "2026-05-08T09:46:09.191170Z",
+  "status": "success",
+  "error": null,
+  "payload": {
+    "document_type": "bao_hiem",
+    "extracted_fields": {
+      "fixed": [
+        {
+          "field_name": "so_quyet_dinh",
+          "value": "789",
+          "confidence": 0.94,
+          "bbox": [
+            80,
+            170,
+            240,
+            38
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "ky_hieu",
+          "value": "QĐ-BHXH",
+          "confidence": 0.94,
+          "bbox": [
+            80,
+            170,
+            240,
+            38
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "ngay_thang_nam",
+          "value": "2026-04-15",
+          "confidence": 0.93,
+          "bbox": [
+            320,
+            170,
+            380,
+            35
+          ],
+          "method": "regex"
+        }
+      ],
+      "dynamic": []
+    },
+    "correction_log": {
+      "enabled": true,
+      "changes": []
+    }
+  }
+}

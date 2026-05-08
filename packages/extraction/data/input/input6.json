@@ -1,0 +1,29 @@
+{
+  "document_id": "bhxh_2026_002",
+  "full_text": "CƠ QUAN BẢO HIỂM XÃ HỘI TỈNH BẾN TRE\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\n\nSố: 789/QĐ-BHXH\nBến Tre, ngày 15 tháng 04 năm 2026\n\nQUYẾT ĐỊNH CẤP SỔ BẢO HIỂM XÃ HỘI\n\nSố sổ BHXH: 031198765432\nMã đơn vị sử dụng lao động: DT12345678\nHọ tên người tham gia: TRẦN THỊ BÍCH, sinh ngày 12/05/1988\nGiới tính: Nữ\nCMND/CCCD: 083456789012\nĐịa chỉ: Ấp Tân Thành, xã Tân Phú, huyện Mỏ Cày Nam, tỉnh Bến Tre\nThời gian đóng BHXH: Từ 03/2020 đến 03/2026\nSố tháng đóng: 72 tháng\n\nGIÁM ĐỐC BẢO HIỂM XÃ HỘI TỈNH BẾN TRE\n(Đã ký và đóng dấu)",
+  "pages": [
+    {
+      "page_num": 1,
+      "text": "CƠ QUAN BẢO HIỂM XÃ HỘI TỈNH BẾN TRE\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\nSố: 789/QĐ-BHXH\nBến Tre, ngày 15 tháng 04 năm 2026\nQUYẾT ĐỊNH CẤP SỔ BẢO HIỂM XÃ HỘI",
+      "bboxes": [
+        {"text": "CƠ QUAN BẢO HIỂM XÃ HỘI TỈNH BẾN TRE", "bbox": [70, 50, 420, 35], "conf": 0.95},
+        {"text": "Số: 789/QĐ-BHXH", "bbox": [80, 170, 240, 38], "conf": 0.94},
+        {"text": "Bến Tre, ngày 15 tháng 04 năm 2026", "bbox": [320, 170, 380, 35], "conf": 0.93},
+        {"text": "QUYẾT ĐỊNH CẤP SỔ BẢO HIỂM XÃ HỘI", "bbox": [160, 240, 480, 45], "conf": 0.96}
+      ],
+      "avg_conf": 0.945
+    },
+    {
+      "page_num": 2,
+      "text": "Số sổ BHXH: 031198765432\nMã đơn vị sử dụng lao động: DT12345678\nHọ tên người tham gia: TRẦN THỊ BÍCH, sinh ngày 12/05/1988\nĐịa chỉ: Ấp Tân Thành, xã Tân Phú, huyện Mỏ Cày Nam, tỉnh Bến Tre\nThời gian đóng BHXH: Từ 03/2020 đến 03/2026",
+      "bboxes": [
+        {"text": "Số sổ BHXH: 031198765432", "bbox": [60, 70, 380, 32], "conf": 0.97},
+        {"text": "Mã đơn vị sử dụng lao động: DT12345678", "bbox": [60, 115, 420, 30], "conf": 0.95},
+        {"text": "Họ tên người tham gia: TRẦN THỊ BÍCH, sinh ngày 12/05/1988", "bbox": [60, 160, 520, 35], "conf": 0.88},
+        {"text": "Địa chỉ: Ấp Tân Thành, xã Tân Phú, huyện Mỏ Cày Nam, tỉnh Bến Tre", "bbox": [60, 205, 580, 38], "conf": 0.86},
+        {"text": "Thời gian đóng BHXH: Từ 03/2020 đến 03/2026", "bbox": [60, 255, 450, 32], "conf": 0.93}
+      ],
+      "avg_conf": 0.918
+    }
+  ]
+}

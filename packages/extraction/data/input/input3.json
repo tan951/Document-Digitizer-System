@@ -1,0 +1,32 @@
+{
+  "document_id": "doc_001_complete",
+  "full_text": "TÒA ÁN NHÂN DÂN TP.HCM\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\nSố: 45/2026/HS-ST\nTP. Hồ Chí Minh, ngày 20 tháng 05 năm 2026\n\nQUYẾT ĐỊNH VỀ VIỆC XÉT XỬ SƠ THẨM\n\nBị cáo: NGUYỂN VĂN A, sinh ngày 15/03/1990\nHộ khẩu: 123 Đường ABC, Quận 1, TP.HCM\nTội danh: TR0M CAP TÀ1 SẢN (theo Điều 173 BLHS)\nCấp án: Sơ thẩm\n\nTÒA ÁN NHÂN DÂN TP.HCM\nTHẨM PHÁN\n(Đã ký)",
+  "pages": [
+    {
+      "page_num": 1,
+      "text": "TÒA ÁN NHÂN DÂN TP.HCM\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\nSố: 45/2026/HS-ST\nTP. Hồ Chí Minh, ngày 20 tháng 05 năm 2026\nQUYẾT ĐỊNH VỀ VIỆC XÉT XỬ SƠ THẨM",
+      "bboxes": [
+        {"text": "TÒA ÁN NHÂN DÂN TP.HCM", "bbox": [50, 50, 300, 30], "conf": 0.95},
+        {"text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM", "bbox": [350, 50, 400, 30], "conf": 0.98},
+        {"text": "Độc lập - Tự do - Hạnh phúc", "bbox": [370, 90, 360, 30], "conf": 0.97},
+        {"text": "Số: 45/2026/HS-ST", "bbox": [50, 150, 250, 40], "conf": 0.94},
+        {"text": "TP. Hồ Chí Minh, ngày 20 tháng 05 năm 2026", "bbox": [350, 150, 350, 40], "conf": 0.91},
+        {"text": "QUYẾT ĐỊNH VỀ VIỆC XÉT XỬ SƠ THẨM", "bbox": [200, 220, 500, 40], "conf": 0.96}
+      ],
+      "avg_conf": 0.95
+    },
+    {
+      "page_num": 2,
+      "text": "Bị cáo: NGUYỂN VĂN A, sinh ngày 15/03/1990\nHộ khẩu: 123 Đường ABC, Quận 1, TP.HCM\nTội danh: TR0M CAP TÀ1 SẢN (theo Điều 173 BLHS)\nCấp án: Sơ thẩm\n\nTÒA ÁN NHÂN DÂN TP.HCM\nTHẨM PHÁN",
+      "bboxes": [
+        {"text": "Bị cáo: NGUYỂN VĂN A, sinh ngày 15/03/1990", "bbox": [50, 50, 450, 35], "conf": 0.89},
+        {"text": "Hộ khẩu: 123 Đường ABC, Quận 1, TP.HCM", "bbox": [50, 95, 450, 30], "conf": 0.92},
+        {"text": "Tội danh: TR0M CAP TÀ1 SẢN (theo Điều 173 BLHS)", "bbox": [50, 140, 550, 30], "conf": 0.82},
+        {"text": "Cấp án: Sơ thẩm", "bbox": [50, 185, 200, 30], "conf": 0.96},
+        {"text": "TÒA ÁN NHÂN DÂN TP.HCM", "bbox": [400, 300, 300, 30], "conf": 0.93},
+        {"text": "THẨM PHÁN", "bbox": [450, 340, 150, 30], "conf": 0.97}
+      ],
+      "avg_conf": 0.91
+    }
+  ]
+}

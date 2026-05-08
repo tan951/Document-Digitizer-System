@@ -40,12 +40,9 @@ router:
 
 fields:
   so_quyet_dinh:
-    label_regexes:
-      - "\\bSố\\s*[:\\-]?\\s*" # Regex chuẩn hơn
+    label_regexes: ["Số:"]
     value_strategy: "same_line"
-    value_regexes:
-      - "\\d+\\s*/\\s*\\d{4}\\s*/\\s*[A-Z\\-]+"
-    normalizer: "number_slash"
+    value_regexes: ["Số:\\s*([0-9/]+/[A-Z-]+)"]
 
   ky_hieu:
     label_regexes:
@@ -65,41 +62,32 @@ fields:
 
   ten_co_quan_to_chuc:
     label_regexes:
-      - "^Cơ\\s*quan\\s*tổ\\s*chức\\s*[:\\-]?\\s*" # Dùng dấu ^ để chỉ bắt đầu dòng
+      - "^Cơ\\s*quan\\s*tổ\\s*chức\\s*[:\\-]?\\s*"
     value_strategy: "same_line"
     normalizer: "name_strip"
 
   ten_bi_cao:
-    label_regexes:
-      - "Bị cáo"
+    label_regexes: ["Bị cáo"]
     value_strategy: "same_line"
-    value_regexes:
-      - "(?<=Bị cáo\\s)[:\\s]*([A-ZÀ-Ỹ\\s]+)"
-    normalizer: "name_strip"
+    value_regexes: ["Bị cáo[:\\s]*([A-ZÀ-Ỹ\\s]+?)(?=,|\\s*sinh|$)"]
 
   toi_danh:
-    label_regexes:
-      - "Tội\\s*danh"
+    label_regexes: ["Tội danh"]
     value_strategy: "same_line"
-    value_regexes:
-      - "(?<=Tội\\s*danh[:\\s]).+"
+    value_regexes: ["Tội danh[:\\s]*(.+?)(?=\\(|theo|$)"]
 
   so_bhxh:
-    label_regexes:
-      - "\\bSố\\s*sổ\\s*BHXH\\b" # SIẾT CHẶT: Phải có chữ "Số sổ"
+    label_regexes: ["Số sổ BHXH"]
     value_strategy: "same_line"
-    value_regexes:
-      - "\\b[0-9]{8,14}\\b" # Đảm bảo chỉ bắt dãy số, không bắt chữ
-    normalizer: "bhxh_fix_confusions"
+    value_regexes: ["Số sổ BHXH[:\\s]*(\\d{9,14})"]
 
 auto_correction:
   enabled: true
   ocr_confusions:
-    "O": "0"  # Đổi chữ O hoa thành số 0 (Đúng)
-    "o": "0"  # Đổi chữ o thường thành số 0 (Đúng)
-    "l": "1"  
-    "I": "1"  
-    # ĐÃ XÓA: "0": "O" 
+    "O": "0"
+    "o": "0"
+    "l": "1"
+    "I": "1"
   date:
     enabled: true
   number:

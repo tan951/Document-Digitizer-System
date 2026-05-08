@@ -1,7 +1,7 @@
 {
-  "request_id": "1b778422-566a-4a27-90b9-ef03823f2e46",
-  "document_id": "bhxh_001",
-  "timestamp": "2026-05-08T09:46:05.106271Z",
+  "request_id": "f14be12f-ff2b-4b91-8904-92df6c39f266",
+  "document_id": "bhxh_001_complete",
+  "timestamp": "2026-05-08T09:46:06.789747Z",
   "status": "success",
   "error": null,
   "payload": {
@@ -37,7 +37,7 @@
           "value": "2026-03-12",
           "confidence": 0.93,
           "bbox": [
-            320,
+            450,
             150,
             350,
             40
@@ -45,20 +45,7 @@
           "method": "regex"
         }
       ],
-      "dynamic": [
-        {
-          "field_name": "ten_co_quan_to_chuc",
-          "value": "BHXH TỈNH BẾN TRE",
-          "confidence": 0.487,
-          "bbox": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "method": "gliner_ner"
-        }
-      ]
+      "dynamic": []
     },
     "correction_log": {
       "enabled": true,

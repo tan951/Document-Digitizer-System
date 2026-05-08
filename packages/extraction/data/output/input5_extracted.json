@@ -1,7 +1,7 @@
 {
-  "request_id": "764af2c1-ab55-4579-acee-cb23ba8ba5b1",
-  "document_id": "doc_001",
-  "timestamp": "2026-05-08T09:46:04.319351Z",
+  "request_id": "face0507-3a43-4984-bc12-09d2b8cdf0be",
+  "document_id": "toaan_2026_001",
+  "timestamp": "2026-05-08T09:46:08.068180Z",
   "status": "success",
   "error": null,
   "payload": {
@@ -10,11 +10,11 @@
       "fixed": [
         {
           "field_name": "so_quyet_dinh",
-          "value": "45/2026",
+          "value": "128/2026",
           "confidence": 0.94,
           "bbox": [
-            50,
-            150,
+            80,
+            180,
             250,
             40
           ],
@@ -25,8 +25,8 @@
           "value": "HS-ST",
           "confidence": 0.94,
           "bbox": [
-            50,
-            150,
+            80,
+            180,
             250,
             40
           ],
@@ -34,13 +34,13 @@
         },
         {
           "field_name": "ngay_thang_nam",
-          "value": "2026-05-20",
-          "confidence": 0.91,
+          "value": "2026-05-06",
+          "confidence": 0.92,
           "bbox": [
-            350,
-            150,
-            350,
-            40
+            320,
+            180,
+            380,
+            35
           ],
           "method": "regex"
         }
@@ -48,25 +48,25 @@
       "dynamic": [
         {
           "field_name": "ten_bi_cao",
-          "value": "NGUYỄN VAN A",
-          "confidence": 0.968,
+          "value": "NGUYỄN VĂN ANH",
+          "confidence": 0.953,
           "bbox": [
-            0,
-            0,
-            0,
-            0
+            60,
+            60,
+            520,
+            38
           ],
           "method": "gliner_ner"
         },
         {
           "field_name": "toi_danh",
-          "value": "TRỘM CẮP TÀI SẢN",
-          "confidence": 0.909,
+          "value": "Trộm cắp tài sản",
+          "confidence": 0.667,
           "bbox": [
-            0,
-            0,
-            0,
-            0
+            60,
+            210,
+            550,
+            35
           ],
           "method": "gliner_ner"
         }
