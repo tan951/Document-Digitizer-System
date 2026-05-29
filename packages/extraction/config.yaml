@@ -5,81 +5,230 @@
 extraction:
   value_window_lines: 2
   label_fuzzy_threshold: 0.85
+  extra_org_prefixes: []
 
 router:
   templates:
     - template_id: "toa_an"
       document_detection:
         keywords:
-          - "Khối Tòa án"
-          - "Tòa án nhân dân"
+          - "TÒA ÁN NHÂN DÂN"
+          - "QUYẾT ĐỊNH"
+          - "BẢN ÁN"  # FIX B: Thêm BẢN ÁN để không bị tịt ngòi
         regexes:
-          - "Khối\\s*Tòa\\s*án"
-          - "Tòa\\s*án"
+          - "TÒA ÁN"
+          - "QUYẾT ĐỊNH"
+          - "BẢN ÁN"
+        negative_keywords:
+          - "BẢO HIỂM"
+          - "UBND"
+          - "CÔNG VĂN"
+          - "BHXH"
       required_fields:
         - "so_quyet_dinh"
         - "ky_hieu"
         - "ngay_thang_nam"
         - "ten_co_quan_to_chuc"
+        - "ten_loai_van_ban"
         - "ten_bi_cao"
-        - "toi_danh"
+        - "nguyen_don"          # FIX A: Đưa vào output
+        - "bi_don"              # FIX A
+        - "dia_chi"             # FIX A
+        - "gia_tri_tranh_chap"  # FIX A
 
     - template_id: "bao_hiem"
       document_detection:
         keywords:
-          - "Khối Bảo hiểm"
-          - "BHXH"
+          - "BẢO HIỂM XÃ HỘI"
+          - "THÔNG BÁO"
+          - "QUYẾT ĐỊNH"       # FIX B: BHXH cũng có Quyết định
         regexes:
-          - "Khối\\s*Bảo\\s*hiểm"
-          - "BHXH"
+          - "BẢO HIỂM XÃ HỘI"
+          - "THÔNG BÁO"
+          - "QĐ-BHXH"          # FIX B: Bắt mạnh Ký hiệu
+        negative_keywords:
+          - "TÒA ÁN"
+          - "BẢN ÁN"
+          - "UBND"
+          - "CÔNG VĂN"
       required_fields:
-        - "so_bhxh"
+        - "so_quyet_dinh"
         - "ky_hieu"
         - "ngay_thang_nam"
         - "ten_co_quan_to_chuc"
+        - "ten_loai_van_ban"
+        - "so_bhxh"
+        - "ma_don_vi"           # FIX A
+        - "so_tien"             # FIX A
+        - "so_dien_thoai"       # FIX A
+        - "dia_chi"             # FIX A
+
+    - template_id: "ngan_hang"
+      document_detection:
+        keywords:
+          - "NGÂN HÀNG NHÀ NƯỚC"
+          - "THÔNG TƯ"
+          - "NHNN"
+        regexes:
+          - "NGÂN HÀNG NHÀ NƯỚC"
+          - "THÔNG TƯ"
+      required_fields:
+        - "so_quyet_dinh"
+        - "ky_hieu"
+        - "ngay_thang_nam"
+        - "ten_co_quan_to_chuc"
+        - "ten_loai_van_ban"
+        
+    - template_id: "ubnd"
+      document_detection:
+        keywords:
+          - "ỦY BAN NHÂN DÂN"
+          - "UBND"
+          - "CÔNG VĂN"
+        regexes:
+          - "ỦY BAN NHÂN DÂN"
+          - "UBND"
+          - "CÔNG VĂN"
+        negative_keywords:
+          - "TÒA ÁN"
+          - "BẢN ÁN"
+          - "BẢO HIỂM"
+          - "BHXH"
+      required_fields:
+        - "so_quyet_dinh"
+        - "ky_hieu"             # FIX E: Bổ sung Ký hiệu
+        - "ngay_thang_nam"
+        - "ten_co_quan_to_chuc"
+        - "ten_loai_van_ban"
 
 fields:
+  so_van_ban_ngan_hang:
+    label_regexes: ["Số:"]
+    value_strategy: "same_line"
+    value_regexes: ["Số:\\s*([0-9/]+/[A-Z-]+)"]
+    correction: false
+
   so_quyet_dinh:
     label_regexes: ["Số:"]
     value_strategy: "same_line"
     value_regexes: ["Số:\\s*([0-9/]+/[A-Z-]+)"]
+    correction: false
 
   ky_hieu:
     label_regexes:
       - "\\bKý\\s*hiệu\\b\\s*[:\\-]?\\s*"
       - "\\bKy\\s*hieu\\b\\s*[:\\-]?\\s*"
     value_strategy: "same_line"
+    correction: false
 
   ngay_thang_nam:
     label_regexes:
       - "\\bNgày\\s*tháng\\s*năm\\b\\s*[:\\-]?\\s*"
-      - "\\bNgay\\s*thang\\s*nam\\b\\s*[:\\-]?\\s*"
     value_strategy: "same_line"
     value_regexes:
       - "\\d{1,2}\\s*[-\\/\\.]\\s*\\d{1,2}\\s*[-\\/\\.]\\s*\\d{2,4}"
       - "\\d{4}\\s*[-\\/\\.]\\s*\\d{1,2}\\s*[-\\/\\.]\\s*\\d{1,2}"
     normalizer: "date_dmy_to_iso"
+    correction: false
 
   ten_co_quan_to_chuc:
-    label_regexes:
-      - "^Cơ\\s*quan\\s*tổ\\s*chức\\s*[:\\-]?\\s*"
+    label_regexes: ["^Cơ\\s*quan\\s*tổ\\s*chức\\s*[:\\-]?\\s*"]
     value_strategy: "same_line"
     normalizer: "name_strip"
+    correction: false    # FIX D: Tắt hoàn toàn correction Seq2Seq cho tên cơ quan, chỉ dùng SymSpell
+    gliner_labels: ["cơ quan ban hành", "tên cơ quan", "tổ chức ban hành"]
+    gliner_threshold: 0.42
 
+  ten_loai_van_ban:
+    label_regexes: []
+    value_strategy: "pattern_match"
+    correction: true
+    gliner_labels: ["loại văn bản", "tên loại văn bản"]
+    gliner_threshold: 0.40
+
+  # ---- KHỐI TÒA ÁN (Bổ sung FIX A) ----
   ten_bi_cao:
     label_regexes: ["Bị cáo"]
     value_strategy: "same_line"
-    value_regexes: ["Bị cáo[:\\s]*([A-ZÀ-Ỹ\\s]+?)(?=,|\\s*sinh|$)"]
+    value_regexes: ["Bị cáo[:\\s]*([A-ZÀ-Ỹa-zà-ỹ\\s]+?)(?=,|\\s*sinh|$)"]
+    correction: true
+    gliner_labels: ["tên bị cáo", "bị cáo", "defendant name"]
+    gliner_threshold: 0.45
 
   toi_danh:
     label_regexes: ["Tội danh"]
     value_strategy: "same_line"
     value_regexes: ["Tội danh[:\\s]*(.+?)(?=\\(|theo|$)"]
+    correction: true
+    gliner_labels: ["tội danh", "tội"]
+    gliner_threshold: 0.40
 
+  nguyen_don:
+    label_regexes: ["Nguyên đơn[^:]*[:\\-]?\\s*"]
+    value_strategy: "same_line"
+    correction: true
+    gliner_labels: ["nguyên đơn", "người khởi kiện"]
+    gliner_threshold: 0.45
+
+  bi_don:
+    label_regexes: ["Bị đơn[^:]*[:\\-]?\\s*"]
+    value_strategy: "same_line"
+    correction: true
+    gliner_labels: ["bị đơn", "người bị kiện"]
+    gliner_threshold: 0.45
+
+  gia_tri_tranh_chap:
+    label_regexes: ["trị giá"]
+    value_strategy: "same_line"
+    correction: false
+    gliner_labels: ["giá trị tranh chấp", "số tiền", "trị giá"]
+    gliner_threshold: 0.40
+
+  # ---- KHỐI BẢO HIỂM (Bổ sung FIX A) ----
   so_bhxh:
     label_regexes: ["Số sổ BHXH"]
     value_strategy: "same_line"
     value_regexes: ["Số sổ BHXH[:\\s]*(\\d{9,14})"]
+    correction: false
+    gliner_labels: ["số sổ bhxh", "mã số bhxh", "số bhxh"]
+    gliner_threshold: 0.50
+
+  ma_don_vi:
+    label_regexes: ["Mã đơn vị[^:]*[:\\-]?\\s*"]
+    value_strategy: "same_line"
+    correction: false
+    gliner_labels: ["mã đơn vị", "mã doanh nghiệp"]
+    gliner_threshold: 0.50
+
+  so_tien:
+    label_regexes: ["số tiền"]
+    value_strategy: "same_line"
+    correction: false
+    gliner_labels: ["số tiền", "tổng tiền"]
+    gliner_threshold: 0.45
+    
+  so_dien_thoai:
+    label_regexes: ["Số điện thoại[^:]*[:\\-]?\\s*", "SĐT[^:]*[:\\-]?\\s*"]
+    value_strategy: "same_line"
+    correction: false
+    gliner_labels: ["số điện thoại", "sđt"]
+    gliner_threshold: 0.50
+
+  ho_ten_nguoi_tham_gia:
+    label_regexes: ["Họ tên người tham gia[:\\s]*", "Họ và tên[:\\s]*"]
+    value_strategy: "same_line"
+    value_regexes: ["Họ tên người tham gia[:\\s]*([A-ZÀÁẢÃẠĂẮẶẲẴẶÂẤẦẬẨẪĐ\\s]+?)(?:,|sinh|$)"]
+    normalizer: "name_strip"
+    correction: true
+    gliner_labels: ["họ tên người tham gia", "họ và tên"]
+    gliner_threshold: 0.45
+
+  dia_chi:
+    label_regexes: ["Địa chỉ[^:]*[:\\-]?\\s*"]
+    value_strategy: "same_line"
+    correction: true
+    gliner_labels: ["địa chỉ", "địa chỉ thường trú", "nơi ở"]
+    gliner_threshold: 0.40
 
 auto_correction:
   enabled: true

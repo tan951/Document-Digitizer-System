@@ -1,72 +1,133 @@
 {
-  "request_id": "764af2c1-ab55-4579-acee-cb23ba8ba5b1",
-  "document_id": "doc_001",
-  "timestamp": "2026-05-08T09:46:04.319351Z",
+  "request_id": "f9c3b7e1-7b1a-4f0a-a4d2-cc4a23e11001",
+  "document_id": "court_doc_1",
+  "timestamp": "2026-05-29T08:56:22.560336Z",
   "status": "success",
   "error": null,
   "payload": {
     "document_type": "toa_an",
+    "routing_confidence": 1.0,
     "extracted_fields": {
       "fixed": [
         {
           "field_name": "so_quyet_dinh",
-          "value": "45/2026",
-          "confidence": 0.94,
+          "value": "15/2026",
+          "confidence": 1.0,
           "bbox": [
-            50,
-            150,
-            250,
-            40
+            120,
+            96,
+            480,
+            113
           ],
           "method": "regex"
         },
         {
           "field_name": "ky_hieu",
-          "value": "HS-ST",
-          "confidence": 0.94,
+          "value": "QĐ-ST",
+          "confidence": 1.0,
           "bbox": [
-            50,
-            150,
-            250,
-            40
+            120,
+            96,
+            480,
+            113
           ],
           "method": "regex"
         },
         {
           "field_name": "ngay_thang_nam",
-          "value": "2026-05-20",
-          "confidence": 0.91,
+          "value": "2026-03-12",
+          "confidence": 0.9,
           "bbox": [
-            350,
-            150,
-            350,
-            40
+            120,
+            180,
+            480,
+            197
           ],
           "method": "regex"
+        },
+        {
+          "field_name": "nguyen_don",
+          "value": "Công ty Cổ phần Đầu tư Hoàng Minh",
+          "confidence": 1.0,
+          "bbox": [
+            55,
+            300,
+            610,
+            320
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "bi_don",
+          "value": "Công ty TNHH Thương mại An Phát",
+          "confidence": 1.0,
+          "bbox": [
+            55,
+            325,
+            610,
+            345
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "dia_chi",
+          "value": "Số 15 Nguyễn Trãi, quận Thanh Xuân, Hà Nội",
+          "confidence": 1.0,
+          "bbox": [
+            55,
+            349,
+            610,
+            369
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "gia_tri_tranh_chap",
+          "value": "2.500.000.000 đồng",
+          "confidence": 1.0,
+          "bbox": [
+            55,
+            374,
+            650,
+            394
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "ten_co_quan_to_chuc",
+          "value": "TÒA ÁN NHÂN DÂN THÀNH PHỐ HÀ NỘI",
+          "confidence": 0.9,
+          "bbox": [
+            52,
+            30,
+            620,
+            50
+          ],
+          "method": "pattern_match"
+        },
+        {
+          "field_name": "ten_loai_van_ban",
+          "value": "QUYẾT ĐỊNH",
+          "confidence": 0.8,
+          "bbox": [
+            120,
+            117,
+            480,
+            134
+          ],
+          "method": "pattern_match"
         }
       ],
       "dynamic": [
         {
-          "field_name": "ten_bi_cao",
-          "value": "NGUYỄN VAN A",
-          "confidence": 0.968,
+          "field_name": "so_tien",
+          "value": "2.500.000.000 đồng",
+          "confidence": 0.844,
           "bbox": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "method": "gliner_ner"
-        },
-        {
-          "field_name": "toi_danh",
-          "value": "TRỘM CẮP TÀI SẢN",
-          "confidence": 0.909,
-          "bbox": [
-            0,
-            0,
-            0,
-            0
+            55,
+            374,
+            650,
+            394
           ],
           "method": "gliner_ner"
         }
@@ -74,7 +135,32 @@
     },
     "correction_log": {
       "enabled": true,
-      "changes": []
+      "changes": [
+        {
+          "original": "15/2026/QĐ-ST",
+          "corrected": "15/2026",
+          "field": "so_quyet_dinh",
+          "method": "pipeline_correction"
+        },
+        {
+          "original": "15/2026/QĐ-ST",
+          "corrected": "QĐ-ST",
+          "field": "ky_hieu",
+          "method": "pipeline_correction"
+        },
+        {
+          "original": "ngày 12 tháng 3 năm 2026",
+          "corrected": "2026-03-12",
+          "field": "ngay_thang_nam",
+          "method": "pipeline_correction"
+        },
+        {
+          "original": "TÒA ÁN NHÂN DÂN THÀNH PHÓ HÀ NỘI",
+          "corrected": "TÒA ÁN NHÂN DÂN THÀNH PHỐ HÀ NỘI",
+          "field": "ten_co_quan_to_chuc",
+          "method": "pipeline_correction"
+        }
+      ]
     }
   }
 }

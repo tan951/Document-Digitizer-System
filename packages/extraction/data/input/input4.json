@@ -1,32 +1,61 @@
 {
-  "document_id": "bhxh_001_complete",
-  "full_text": "CƠ QUAN BẢO HIỂM XÃ HỘI TỈNH BẾN TRE\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\n\nSố: 456/QĐ-BHXH\nBến Tre, ngày 12 tháng 03 năm 2026\n\nQUYẾT ĐỊNH CẤP SỔ BẢO HIỂM XÃ HỘI\n\nSố sổ BHXH: 031123456789\nMã đơn vị sử dụng lao động: BHX001234\nHọ tên người tham gia: TRÇN THÞ B, sinh ngày 12/05/1985\nĐịa chỉ: ấp Tân Thành, xã Tân Phú, huyện Mò Cây Nam\nThời gian đóng: 03/2020 đến 03/2026\n\nGIÁM ĐỐC BHXH TỈNH BẾN TRE\n(Đã ký và đóng dấu)",
-  "pages": [
-    {
-      "page_num": 1,
-      "text": "CƠ QUAN BẢO HIỂM XÃ HỘI TỈNH BẾN TRE\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\nSố: 456/QĐ-BHXH\nBến Tre, ngày 12 tháng 03 năm 2026\nQUYẾT ĐỊNH CẤP SỔ BẢO HIỂM XÃ HỘI",
-      "bboxes": [
-        {"text": "CƠ QUAN BẢO HIỂM XÃ HỘI TỈNH BẾN TRE", "bbox": [50, 50, 350, 30], "conf": 0.94},
-        {"text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM", "bbox": [450, 50, 400, 30], "conf": 0.98},
-        {"text": "Độc lập - Tự do - Hạnh phúc", "bbox": [480, 90, 350, 30], "conf": 0.99},
-        {"text": "Số: 456/QĐ-BHXH", "bbox": [50, 150, 220, 40], "conf": 0.95},
-        {"text": "Bến Tre, ngày 12 tháng 03 năm 2026", "bbox": [450, 150, 350, 40], "conf": 0.93},
-        {"text": "QUYẾT ĐỊNH CẤP SỔ BẢO HIỂM XÃ HỘI", "bbox": [250, 250, 500, 40], "conf": 0.97}
-      ],
-      "avg_conf": 0.96
-    },
-    {
-      "page_num": 2,
-      "text": "Số sổ BHXH: 031123456789\nMã đơn vị sử dụng lao động: BHX001234\nHọ tên người tham gia: TRÇN THÞ B, sinh ngày 12/05/1985\nĐịa chỉ: ấp Tân Thành, xã Tân Phú, huyện Mò Cây Nam\nThời gian đóng: 03/2020 đến 03/2026\nGIÁM ĐỐC BHXH TỈNH BẾN TRE",
-      "bboxes": [
-        {"text": "Số sổ BHXH: 031123456789", "bbox": [50, 80, 300, 30], "conf": 0.98},
-        {"text": "Mã đơn vị sử dụng lao động: BHX001234", "bbox": [50, 130, 400, 25], "conf": 0.96},
-        {"text": "Họ tên người tham gia: TRÇN THÞ B, sinh ngày 12/05/1985", "bbox": [50, 180, 550, 30], "conf": 0.85},
-        {"text": "Địa chỉ: ấp Tân Thành, xã Tân Phú, huyện Mò Cây Nam", "bbox": [50, 230, 500, 30], "conf": 0.88},
-        {"text": "Thời gian đóng: 03/2020 đến 03/2026", "bbox": [50, 280, 350, 30], "conf": 0.94},
-        {"text": "GIÁM ĐỐC BHXH TỈNH BẾN TRE", "bbox": [550, 350, 300, 30], "conf": 0.92}
-      ],
-      "avg_conf": 0.92
+  "request_id": "f3b3902d-aa48-4176-b236-e537480c9781",
+  "document_id": "bhxh_doc_2",
+  "module": "ocr",
+  "version": "1.0.0",
+  "timestamp": "2026-05-26T14:18:10.912441Z",
+  "status": "success",
+  "error": null,
+  "payload": {
+    "page": 1,
+    "input_image": "..\\preprocess\\data\\output\\bhxh_02.png",
+    "engine": "vintern",
+    "language": "vie",
+    "text": "BẢO HIỂM XÃ HỘI TỈNH BÌNH DƯƠNG\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\nSố: 455/QĐ-BHXH\nQUYẾT ĐỊNH\nVề việc thanh tra chuyên ngành đóng BHXH\nĐơn vị được thanh tra: Công ty TNHH Sản xuất Đại Nam.\nMã số thuế: 3702458891.\nTổng số lao động tham gia BHXH: 125 người.",
+    "blocks": [
+      {
+        "level": "line",
+        "text": "BẢO HIỂM XÃ HỘI TỈNH BÌNH DƯƠNG",
+        "bbox": [
+          52,
+          30,
+          600,
+          50
+        ],
+        "confidence": 96.9
+      },
+      {
+        "level": "line",
+        "text": "Số: 455/QĐ-BHXH",
+        "bbox": [
+          60,
+          92,
+          280,
+          110
+        ],
+        "confidence": 98.5
+      },
+      {
+        "level": "line",
+        "text": "QUYẾT ĐỊNH",
+        "bbox": [
+          255,
+          125,
+          450,
+          148
+        ],
+        "confidence": 99.0
+      }
+    ],
+    "meta": {
+      "model_name": "5CD-AI/Vintern-1B-v3_5",
+      "device": "cuda",
+      "overall_confidence": 95.9,
+      "bounding_boxes": {
+        "enabled": true,
+        "count": 3,
+        "method": "craft_poly"
+      }
     }
-  ]
+  }
 }

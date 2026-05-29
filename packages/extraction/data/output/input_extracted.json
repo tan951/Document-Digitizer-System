@@ -1,0 +1,87 @@
+{
+  "request_id": "cba0530b-9aa6-41de-b012-93856d186bff",
+  "document_id": "local_doc_5",
+  "timestamp": "2026-05-29T08:56:10.705223Z",
+  "status": "success",
+  "error": null,
+  "payload": {
+    "document_type": "ngan_hang",
+    "routing_confidence": 1.0,
+    "extracted_fields": {
+      "fixed": [
+        {
+          "field_name": "so_quyet_dinh",
+          "value": "23/19047",
+          "confidence": 0.3585775476315948,
+          "bbox": [
+            46,
+            410,
+            380,
+            430
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "ky_hieu",
+          "value": "TN-NHNN",
+          "confidence": 0.3585775476315948,
+          "bbox": [
+            46,
+            410,
+            380,
+            430
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "ten_co_quan_to_chuc",
+          "value": "NGÂN HÀNG NHÀ NƯỚC VIỆT Nam",
+          "confidence": 0.9,
+          "bbox": [
+            53,
+            31,
+            523,
+            50
+          ],
+          "method": "pattern_match"
+        },
+        {
+          "field_name": "ten_loai_van_ban",
+          "value": "THÔNG TƯ",
+          "confidence": 0.992,
+          "bbox": [
+            334,
+            119,
+            405,
+            135
+          ],
+          "method": "pattern_match"
+        }
+      ],
+      "dynamic": []
+    },
+    "correction_log": {
+      "enabled": true,
+      "changes": [
+        {
+          "original": "23/19047/TN-NHNN",
+          "corrected": "23/19047",
+          "field": "so_quyet_dinh",
+          "method": "pipeline_correction"
+        },
+        {
+          "original": "23/19047/TN-NHNN",
+          "corrected": "TN-NHNN",
+          "field": "ky_hieu",
+          "method": "pipeline_correction"
+        },
+        {
+          "original": "NGÂN HÀN NHÁ NƯỚC VIỆT Nam\nCONG HOA XÃHỘI CHỦ NGHIÊU NIỀM",
+          "corrected": "NGÂN HÀNG NHÀ NƯỚC VIỆT Nam",
+          "field": "ten_co_quan_to_chuc",
+          "method": "pipeline_correction"
+        }
+      ]
+    }
+  }
+}

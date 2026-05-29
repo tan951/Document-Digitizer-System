@@ -1,55 +1,81 @@
 {
-  "request_id": "f14be12f-ff2b-4b91-8904-92df6c39f266",
-  "document_id": "bhxh_001_complete",
-  "timestamp": "2026-05-08T09:46:06.789747Z",
+  "request_id": "f3b3902d-aa48-4176-b236-e537480c9781",
+  "document_id": "bhxh_doc_2",
+  "timestamp": "2026-05-29T08:56:31.557067Z",
   "status": "success",
   "error": null,
   "payload": {
     "document_type": "bao_hiem",
+    "routing_confidence": 1.0,
     "extracted_fields": {
       "fixed": [
         {
           "field_name": "so_quyet_dinh",
-          "value": "456",
-          "confidence": 0.95,
+          "value": "455",
+          "confidence": 1.0,
           "bbox": [
-            50,
-            150,
-            220,
-            40
+            60,
+            92,
+            280,
+            110
           ],
           "method": "regex"
         },
         {
           "field_name": "ky_hieu",
           "value": "QĐ-BHXH",
-          "confidence": 0.95,
+          "confidence": 1.0,
           "bbox": [
-            50,
-            150,
-            220,
-            40
+            60,
+            92,
+            280,
+            110
           ],
           "method": "regex"
         },
         {
-          "field_name": "ngay_thang_nam",
-          "value": "2026-03-12",
-          "confidence": 0.93,
+          "field_name": "ten_co_quan_to_chuc",
+          "value": "BẢO HIỂM XÃ HỘI TỈNH BÌNH DƯƠNG",
+          "confidence": 0.9,
           "bbox": [
-            450,
-            150,
-            350,
-            40
+            52,
+            30,
+            600,
+            50
           ],
-          "method": "regex"
+          "method": "pattern_match"
+        },
+        {
+          "field_name": "ten_loai_van_ban",
+          "value": "QUYẾT ĐỊNH",
+          "confidence": 0.99,
+          "bbox": [
+            255,
+            125,
+            450,
+            148
+          ],
+          "method": "pattern_match"
         }
       ],
       "dynamic": []
     },
     "correction_log": {
       "enabled": true,
-      "changes": []
+      "changes": [
+        {
+          "original": "455/QĐ-BHXH",
+          "corrected": "455",
+          "field": "so_quyet_dinh",
+          "method": "pipeline_correction"
+        },
+        {
+          "original": "455/QĐ-BHXH",
+          "corrected": "QĐ-BHXH",
+          "field": "ky_hieu",
+          "method": "pipeline_correction"
+        }
+      ]
     }
   }
 }

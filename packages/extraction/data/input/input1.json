@@ -1,25 +1,104 @@
 {
-  "document_id": "doc_001",
-  "full_text": "CỘNG HÒA XÃ HỘI CHỦ NGHIA VIỆT NAM\nSố: 45/2026/HS-ST                    TP. Hồ Chí Minh, ngày 20 tháng 05 năm 2026\n\nVỀ VIỆC XÉT XỬ BỊ CÁO NGUYỂN VĂN A\n\nBị cáo: NGUYEN VAN A, sinh ngày 15/3/1990, \nhộ khẩu: 123 Đường ABC, Quận 1, TP.HCM\nTội danh: TROM CAP TÀI SẢN (theo Điều 173 BLHS)\nCấp án: sơ thẩm\n\nBẢN ÁN...\n[ocr noise: dấu sai, ghép từ: 'TROMCAP', extra spaces]",
-  "pages": [
-    {
-      "page_num": 1,
-      "text": "CỘNG HÒA XÃ HỘI CHỦ NGHIA VIỆT NAM\nSố: 45/2026/HS-ST                    TP. Hồ Chí Minh, ngày 20 tháng 05 năm 2026\nVỀ VIỆC XÉT XỬ BỊ CÁO NGUYỂN VĂN A",
-      "bboxes": [
-        {"text": "Số: 45/2026/HS-ST", "bbox": [50, 150, 250, 40], "conf": 0.94},
-        {"text": "TP. Hồ Chí Minh, ngày 20 tháng 05 năm 2026", "bbox": [350, 150, 350, 40], "conf": 0.91},
-        {"text": "BỊ CÁO NGUYỂN VĂN A", "bbox": [50, 250, 300, 35], "conf": 0.89}
-      ],
-      "avg_conf": 0.91
-    },
-    {
-      "page_num": 2,
-      "text": "Bị cáo: NGUYEN VAN A, sinh ngày 15/3/1990,\nTội danh: TROM CAP TÀI SẢN theo Điều 173 BLHS",
-      "bboxes": [
-        {"text": "TROM CAP TÀI SẢN", "bbox": [50, 100, 250, 30], "conf": 0.82},
-        {"text": "Điều 173 BLHS", "bbox": [320, 100, 150, 25], "conf": 0.87}
-      ],
-      "avg_conf": 0.85
+  "request_id": "f9c3b7e1-7b1a-4f0a-a4d2-cc4a23e11001",
+  "document_id": "court_doc_1",
+  "module": "ocr",
+  "version": "1.0.0",
+  "timestamp": "2026-05-26T14:12:22.145223Z",
+  "status": "success",
+  "error": null,
+  "payload": {
+    "page": 1,
+    "input_image": "..\\preprocess\\data\\output\\toa_an_01.png",
+    "engine": "vintern",
+    "language": "vie",
+    "text": "TÒA ÁN NHÂN DÂN THÀNH PHÓ HÀ NỘI\nCỘNG HÒA XÃ HÔI CHỦ NGHĨA VIỆT NAM\nĐôc lập - Tự do - Hạnh phúc\nSố: 15/2026/QĐ-ST\nQUYẾT ĐỊNH\nVề việc đưa vụ án ra xét xử sơ thẫm\nCăn cứ Bộ luật tố tụng dân sư năm 2015;\nSau khi nghiên cứu hồ sơ vụ án dân sự thụ lý số 34/2026/TLST-DS ngày 12 tháng 3 năm 2026;\nXét thấy vụ án thuộc thẩm quyền giải quyết của Toà án nhân dâm thành phố Hà Nội;\nQUYẾT ĐỊNH:\nĐiều 1. Đưa ra xét xử sơ thẩm công khai vụ án dân sự về tranh chấp hợp đồng vay tài sản.\nĐiều 2. Thời gian mở phiên toà vào lúc 08 giờ 30 phút ngày 25 tháng 6 năm 2026.\nĐiều 3. Các đương sự có nghĩa vụ có mặt đúng thời gian quy đinh.\nNguyên đơn: Công ty Cổ phần Đầu tư Hoàng Minh.\nBị đơn: Công ty TNHH Thương mại An Phát.\nĐịa chỉ bị đơn: Số 15 Nguyễn Trãi, quận Thanh Xuân, Hà Nội.\nNgười đại diện theo pháp luật: Nguyễn Văn Bình.\nNội dung tranh chấp: Chậm thanh toán hợp đồng vay tài sản trị giá 2.500.000.000 đồng.",
+    "blocks": [
+      {
+        "level": "line",
+        "text": "TÒA ÁN NHÂN DÂN THÀNH PHÓ HÀ NỘI",
+        "bbox": [
+          52,
+          30,
+          620,
+          50
+        ],
+        "confidence": 96.4,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "CỘNG HÒA XÃ HÔI CHỦ NGHĨA VIỆT NAM",
+        "bbox": [
+          61,
+          52,
+          650,
+          70
+        ],
+        "confidence": 98.7
+      },
+      {
+        "level": "line",
+        "text": "Đôc lập - Tự do - Hạnh phúc",
+        "bbox": [
+          120,
+          75,
+          480,
+          92
+        ],
+        "confidence": 95.8,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Nguyên đơn: Công ty Cổ phần Đầu tư Hoàng Minh.",
+        "bbox": [
+          55,
+          300,
+          610,
+          320
+        ],
+        "confidence": 97.1
+      },
+      {
+        "level": "line",
+        "text": "Bị đơn: Công ty TNHH Thương mại An Phát.",
+        "bbox": [
+          55,
+          325,
+          610,
+          345
+        ],
+        "confidence": 96.8
+      },
+      {
+        "level": "line",
+        "text": "Người đại diện theo pháp luật: Nguyễn Văn Bình.",
+        "bbox": [
+          55,
+          350,
+          650,
+          370
+        ],
+        "confidence": 97.4
+      }
+    ],
+    "meta": {
+      "model_name": "5CD-AI/Vintern-1B-v3_5",
+      "device": "cuda",
+      "overall_confidence": 96.8,
+      "bounding_boxes": {
+        "enabled": true,
+        "count": 3,
+        "method": "craft_poly"
+      }
     }
-  ]
+  }
 }

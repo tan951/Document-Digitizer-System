@@ -27,6 +27,7 @@
       "required": ["document_type", "extracted_fields"],
       "properties": {
         "document_type": { "type": "string" },
+        "routing_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
         "extracted_fields": {
           "type": "object",
           "properties": {

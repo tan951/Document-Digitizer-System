@@ -1,68 +1,153 @@
 {
-  "request_id": "1b778422-566a-4a27-90b9-ef03823f2e46",
-  "document_id": "bhxh_001",
-  "timestamp": "2026-05-08T09:46:05.106271Z",
+  "request_id": "b73d6b88-4e45-47d4-b2d1-7727ee220002",
+  "document_id": "bhxh_doc_1",
+  "timestamp": "2026-05-29T08:56:29.184271Z",
   "status": "success",
   "error": null,
   "payload": {
     "document_type": "bao_hiem",
+    "routing_confidence": 1.0,
     "extracted_fields": {
       "fixed": [
         {
           "field_name": "so_quyet_dinh",
-          "value": "456",
-          "confidence": 0.95,
+          "value": "223",
+          "confidence": 1.0,
           "bbox": [
-            50,
-            150,
-            220,
-            40
+            61,
+            125,
+            630,
+            143
           ],
           "method": "regex"
         },
         {
           "field_name": "ky_hieu",
-          "value": "QĐ-BHXH",
-          "confidence": 0.95,
+          "value": "TB-BHXH",
+          "confidence": 1.0,
           "bbox": [
-            50,
-            150,
-            220,
-            40
+            61,
+            125,
+            630,
+            143
           ],
           "method": "regex"
         },
         {
           "field_name": "ngay_thang_nam",
-          "value": "2026-03-12",
-          "confidence": 0.93,
+          "value": "2026-05-20",
+          "confidence": 0.8,
           "bbox": [
-            320,
-            150,
-            350,
-            40
+            61,
+            235,
+            630,
+            253
           ],
           "method": "regex"
-        }
-      ],
-      "dynamic": [
+        },
+        {
+          "field_name": "so_tien",
+          "value": "152.000.000 đồng",
+          "confidence": 1.0,
+          "bbox": [
+            61,
+            257,
+            630,
+            275
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "ma_don_vi",
+          "value": "DN889201",
+          "confidence": 1.0,
+          "bbox": [
+            60,
+            320,
+            350,
+            338
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "so_dien_thoai",
+          "value": "0909123456",
+          "confidence": 1.0,
+          "bbox": [
+            60,
+            370,
+            500,
+            388
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "dia_chi",
+          "value": "125 Lý Thường Kiệt, Quận 10, TP. Hồ Chí Minh",
+          "confidence": 1.0,
+          "bbox": [
+            60,
+            392,
+            500,
+            410
+          ],
+          "method": "regex"
+        },
         {
           "field_name": "ten_co_quan_to_chuc",
-          "value": "BHXH TỈNH BẾN TRE",
-          "confidence": 0.487,
+          "value": "BẢO HIỂM XÃ HỘI VIỆT NAM",
+          "confidence": 0.9,
           "bbox": [
-            0,
-            0,
-            0,
-            0
+            48,
+            32,
+            510,
+            50
           ],
-          "method": "gliner_ner"
+          "method": "pattern_match"
+        },
+        {
+          "field_name": "ten_loai_van_ban",
+          "value": "THÔNG BÁO",
+          "confidence": 0.8,
+          "bbox": [
+            61,
+            147,
+            630,
+            165
+          ],
+          "method": "pattern_match"
         }
-      ]
+      ],
+      "dynamic": []
     },
     "correction_log": {
       "enabled": true,
-      "changes": []
+      "changes": [
+        {
+          "original": "223/TB-BHXH",
+          "corrected": "223",
+          "field": "so_quyet_dinh",
+          "method": "pipeline_correction"
+        },
+        {
+          "original": "223/TB-BHXH",
+          "corrected": "TB-BHXH",
+          "field": "ky_hieu",
+          "method": "pipeline_correction"
+        },
+        {
+          "original": "ngày 20 tháng 5 năm 2026",
+          "corrected": "2026-05-20",
+          "field": "ngay_thang_nam",
+          "method": "pipeline_correction"
+        },
+        {
+          "original": "BẢO HIỂM XÃ HỘl VIỆT NAM",
+          "corrected": "BẢO HIỂM XÃ HỘI VIỆT NAM",
+          "field": "ten_co_quan_to_chuc",
+          "method": "pipeline_correction"
+        }
+      ]
     }
   }
 }

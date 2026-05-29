@@ -1,26 +1,109 @@
 {
-  "document_id": "bhxh_001",
-  "full_text": "CỘNG HÒA XÃ HỘI CHỦ NGHIA VIỆT NAM\nSố: 456/QĐ-BHXH                   Bến Tre, ngày 12 tháng 03 năm 2026\n\nQUYẾT ĐỊNH CẤP SỔ BHXH\n\nSố sổ BHXH: 031123456789\nMã đơn vị sử dụng lao động: BHX001234\nHọ tên người tham gia: TRÂN THỊ B, sinh 12/05/1985\nĐịa chỉ: ấp Tân Thành, xã Tân Phú, huyện Mỏ Cày Nam\nThời gian đóng: 03/2020 → 03/2026\n\nBHXH TỈNH BẾN TRE\n[ocr noise: 'TRÂN THỊ B'→'TRÇN THÞ B', 'Mỏ Cày Nam'→'Mò Cây Nam']",
-  "pages": [
-    {
-      "page_num": 1,
-      "text": "CỘNG HÒA XÃ HỘI CHỦ NGHIA VIỆT NAM\nSố: 456/QĐ-BHXH                   Bến Tre, ngày 12 tháng 03 năm 2026\nQUYẾT ĐỊNH CẤP SỔ BHXH",
-      "bboxes": [
-        {"text": "Số: 456/QĐ-BHXH", "bbox": [50, 150, 220, 40], "conf": 0.95},
-        {"text": "Bến Tre, ngày 12 tháng 03 năm 2026", "bbox": [320, 150, 350, 40], "conf": 0.93},
-        {"text": "QUYẾT ĐỊNH CẤP SỔ BHXH", "bbox": [50, 250, 400, 35], "conf": 0.90}
-      ],
-      "avg_conf": 0.93
-    },
-    {
-      "page_num": 2,
-      "text": "Số sổ BHXH: 031123456789\nMã đơn vị: BHX001234\nHọ tên: TRÇN THÞ B, sinh 12/05/1985\nĐịa chỉ: ấp Tân Thành, xã Tân Phú, Mò Cày Nam",
-      "bboxes": [
-        {"text": "031123456789", "bbox": [50, 80, 180, 30], "conf": 0.98},
-        {"text": "BHX001234", "bbox": [50, 130, 120, 25], "conf": 0.96},
-        {"text": "TRÇN THÞ B", "bbox": [50, 180, 150, 30], "conf": 0.78}
-      ],
-      "avg_conf": 0.91
+  "request_id": "b73d6b88-4e45-47d4-b2d1-7727ee220002",
+  "document_id": "bhxh_doc_1",
+  "module": "ocr",
+  "version": "1.0.0",
+  "timestamp": "2026-05-26T14:18:10.912441Z",
+  "status": "success",
+  "error": null,
+  "payload": {
+    "page": 1,
+    "input_image": "..\\preprocess\\data\\output\\bhxh_01.png",
+    "engine": "vintern",
+    "language": "vie",
+    "text": "BẢO HIỂM XÃ HỘl VIỆT NAM\nBẢO HIỂM XÃ HỘI THÀNH PHỐ HỒ CHÍ M1NH\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT N4M\nĐộc lập - Tự do - Hạnh phúc\nSố: 223/TB-BHXH\nTHÔNG BÁO\nVề việc chậm đóng bảo hiểm xã hôi bắt buộc\nKính gửi: Công ty TNHH Minh Phát.\nCăn cứ Luật bảo hiểm xã hội năm 2014;\nCăn cứ dữ liệu quản lý thu BHXH đến ngày 20 tháng 5 năm 2026;\nBảo hiểm xã hội thành phố Hồ Chí Minh thông báo đơn vị còn chậm đóng số tiền 152.000.000 đồng.\nYêu cầu đơn vị khẩn trương hoàn thành nghĩa vụ đóng BHXH, BHYT, BHTN theo quy đinh.\nTrường hợp không thực hiện đúng thời hạn, cơ quan BHXH sẽ tiến hành xử lý theo quy định pháp luât.\nMã đơn vị: DN889201.\nThời gian chậm đóng: từ tháng 01/2026 đến tháng 05/2026.\nNgười liên hệ: Trần Thị Thu Hà.\nSố điện thoại liên hệ: 0909123456.\nĐịa chỉ doanh nghiệp: 125 Lý Thường Kiệt, Quận 10, TP. Hồ Chí Minh.",
+    "blocks": [
+      {
+        "level": "line",
+        "text": "BẢO HIỂM XÃ HỘl VIỆT NAM",
+        "bbox": [
+          48,
+          32,
+          510,
+          50
+        ],
+        "confidence": 95.2,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "BẢO HIỂM XÃ HỘI THÀNH PHỐ HỒ CHÍ M1NH",
+        "bbox": [
+          52,
+          56,
+          600,
+          74
+        ],
+        "confidence": 94.9,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT N4M",
+        "bbox": [
+          61,
+          81,
+          630,
+          99
+        ],
+        "confidence": 96.1,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Mã đơn vị: DN889201.",
+        "bbox": [
+          60,
+          320,
+          350,
+          338
+        ],
+        "confidence": 97.3
+      },
+      {
+        "level": "line",
+        "text": "Người liên hệ: Trần Thị Thu Hà.",
+        "bbox": [
+          60,
+          345,
+          500,
+          363
+        ],
+        "confidence": 96.7
+      },
+      {
+        "level": "line",
+        "text": "Số điện thoại liên hệ: 0909123456.",
+        "bbox": [
+          60,
+          370,
+          500,
+          388
+        ],
+        "confidence": 98.0
+      }
+    ],
+    "meta": {
+      "model_name": "5CD-AI/Vintern-1B-v3_5",
+      "device": "cuda",
+      "overall_confidence": 95.9,
+      "bounding_boxes": {
+        "enabled": true,
+        "count": 3,
+        "method": "craft_poly"
+      }
     }
-  ]
+  }
 }

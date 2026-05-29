@@ -1,31 +1,61 @@
 {
-  "document_id": "toaan_2026_001",
-  "full_text": "TÒA ÁN NHÂN DÂN THÀNH PHỐ HỒ CHÍ MINH\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\n\nSố: 128/2026/HS-ST\nTP. Hồ Chí Minh, ngày 06 tháng 05 năm 2026\n\nQUYẾT ĐỊNH VỀ VIỆC XÉT XỬ SƠ THẨM\n\nBị cáo: NGUYỄN VĂN ANH, sinh ngày 15/03/1995\nCMND/CCCD: 079123456789\nHộ khẩu thường trú: 123 Đường Nguyễn Thị Minh Khai, Phường Bến Nghé, Quận 1, TP.HCM\nChỗ ở hiện nay: 456 Đường Lê Văn Sỹ, Phường 13, Quận Phú Nhuận, TP.HCM\nTội danh: Trộm cắp tài sản theo khoản 1 Điều 173 BLHS 2015 (sửa đổi, bổ sung 2017)\nĐiều luật áp dụng: Điều 173; Điều 38; Điều 50 BLHS\nCấp xét xử: Sơ thẩm\nThẩm phán: Ông Trần Văn Bình\n\nTÒA ÁN NHÂN DÂN TP.HCM\n(Đã ký và đóng dấu)",
-  "pages": [
-    {
-      "page_num": 1,
-      "text": "TÒA ÁN NHÂN DÂN THÀNH PHỐ HỒ CHÍ MINH\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\nSố: 128/2026/HS-ST\nTP. Hồ Chí Minh, ngày 06 tháng 05 năm 2026\nQUYẾT ĐỊNH VỀ VIỆC XÉT XỬ SƠ THẨM",
-      "bboxes": [
-        {"text": "TÒA ÁN NHÂN DÂN THÀNH PHỐ HỒ CHÍ MINH", "bbox": [80, 40, 420, 35], "conf": 0.96},
-        {"text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM", "bbox": [120, 85, 380, 30], "conf": 0.97},
-        {"text": "Độc lập - Tự do - Hạnh phúc", "bbox": [180, 120, 280, 28], "conf": 0.95},
-        {"text": "Số: 128/2026/HS-ST", "bbox": [80, 180, 250, 40], "conf": 0.94},
-        {"text": "TP. Hồ Chí Minh, ngày 06 tháng 05 năm 2026", "bbox": [320, 180, 380, 35], "conf": 0.92},
-        {"text": "QUYẾT ĐỊNH VỀ VIỆC XÉT XỬ SƠ THẨM", "bbox": [150, 240, 450, 45], "conf": 0.96}
-      ],
-      "avg_conf": 0.95
-    },
-    {
-      "page_num": 2,
-      "text": "Bị cáo: NGUYỄN VĂN ANH, sinh ngày 15/03/1995\nCMND/CCCD: 079123456789\nHộ khẩu thường trú: 123 Đường Nguyễn Thị Minh Khai, Phường Bến Nghé, Quận 1, TP.HCM\nTội danh: Trộm cắp tài sản theo khoản 1 Điều 173 BLHS 2015\nThẩm phán: Ông Trần Văn Bình",
-      "bboxes": [
-        {"text": "Bị cáo: NGUYỄN VĂN ANH, sinh ngày 15/03/1995", "bbox": [60, 60, 520, 38], "conf": 0.90},
-        {"text": "CMND/CCCD: 079123456789", "bbox": [60, 110, 320, 32], "conf": 0.93},
-        {"text": "Hộ khẩu thường trú: 123 Đường Nguyễn Thị Minh Khai, Phường Bến Nghé, Quận 1, TP.HCM", "bbox": [60, 155, 580, 40], "conf": 0.87},
-        {"text": "Tội danh: Trộm cắp tài sản theo khoản 1 Điều 173 BLHS 2015", "bbox": [60, 210, 550, 35], "conf": 0.84},
-        {"text": "Thẩm phán: Ông Trần Văn Bình", "bbox": [380, 320, 320, 30], "conf": 0.91}
-      ],
-      "avg_conf": 0.89
+  "request_id": "9991adb6-c3bd-43aa-a3ba-05ff2173e53e",
+  "document_id": "criminal_doc_1",
+  "module": "ocr",
+  "version": "1.0.0",
+  "timestamp": "2026-05-26T14:12:22.145223Z",
+  "status": "success",
+  "error": null,
+  "payload": {
+    "page": 1,
+    "input_image": "..\\preprocess\\data\\output\\toa_an_02.png",
+    "engine": "vintern",
+    "language": "vie",
+    "text": "TÒA ÁN NHÂN DÂN TỈNH ĐỒNG NAI\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\nSố: 102/2026/HS-ST\nBẢN ÁN\nVề tội trộm cắp tài sản\nBị cáo: Trần Văn Hùng, sinh năm 1995.\nĐịa chỉ: phường Long Bình, thành phố Biên Hòa, tỉnh Đồng Nai.\nTài sản chiếm đoạt trị giá: 85.000.000 đồng.",
+    "blocks": [
+      {
+        "level": "line",
+        "text": "TÒA ÁN NHÂN DÂN TỈNH ĐỒNG NAI",
+        "bbox": [
+          48,
+          26,
+          590,
+          46
+        ],
+        "confidence": 97.8
+      },
+      {
+        "level": "line",
+        "text": "Số: 102/2026/HS-ST",
+        "bbox": [
+          55,
+          88,
+          300,
+          106
+        ],
+        "confidence": 98.4
+      },
+      {
+        "level": "line",
+        "text": "BẢN ÁN",
+        "bbox": [
+          280,
+          122,
+          390,
+          145
+        ],
+        "confidence": 99.2
+      }
+    ],
+    "meta": {
+      "model_name": "5CD-AI/Vintern-1B-v3_5",
+      "device": "cuda",
+      "overall_confidence": 96.8,
+      "bounding_boxes": {
+        "enabled": true,
+        "count": 3,
+        "method": "craft_poly"
+      }
     }
-  ]
+  }
 }

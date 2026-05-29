@@ -1,6 +1,8 @@
 ﻿import argparse
 from pathlib import Path
-from src.extractor import process_folder
+
+# Import process_folder từ thư mục src (sẽ đi qua __init__.py)
+from src import process_folder
 
 def main():
     parser = argparse.ArgumentParser(description="Module 3: Dynamic Extraction")
@@ -17,6 +19,7 @@ def main():
         config_path=args.config,
         schema_path=args.schema,
         config_schema_path=args.config_schema,
+        max_workers=1
     )
 
 if __name__ == "__main__":

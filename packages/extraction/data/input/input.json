@@ -1,0 +1,339 @@
+{
+  "request_id": "cba0530b-9aa6-41de-b012-93856d186bff",
+  "document_id": "local_doc_5",
+  "module": "ocr",
+  "version": "1.0.0",
+  "timestamp": "2026-05-18T09:35:17.739768Z",
+  "status": "success",
+  "error": null,
+  "payload": {
+    "page": 1,
+    "input_image": "..\\preprocess\\data\\output\\image_clean.png",
+    "engine": "vintern",
+    "language": "vie",
+    "text": "NGÂN HÀN NHÁ NƯỚC VIỆT Nam\nCONG HOA XÃHỘI CHỦ NGHIÊU NIỀM\nVIỆT NAM Độc lập - Tự do – Hạnh phúc\nSố: 32/\nTHÔNG TƯ\nTRONG 10\nCửa đối, bộ đồng một 60 điều giao thông từ quy định. Thay thế bằng hàng nhà nước Việt Nam hướng dẫn việc mở và sử dụng tài khoản thanh toán tại tổ\nChức cung ứng dịch vụ thanh toán\nCăn cứ Luật Ngân hàng Nhà nước Việt Nam số 46/2019/QH-CHQ ngày ... tháng ...\nCăn cứ Luật Ngân hàng Nhà nước Việt Nam số 47/2016/QHĐQG ngày ... tháng ...,\nCăn cứ Nghị định số 10/2O/QĐ-CP ngày XX tháng X năm\nXH. của Chính phủ về thanh toán không\nCần có 1\ndùng tiền mặt;\nCăn cứ Nghị định số 80/216/NĐ-CP ngày ... tháng ...\nĐiều của Nghị định số 10/29/NH-CP ngày ... tháng ..., do đăng ký tại Điều này, được sửa đổi và thay thế theo nghị Định Số:\ntiên mật;\nCăn cứ Nghị định số 156/20\nnhiệm vụ, quyền hạn và cơ cấu tổ chức của Ngân hàng Nhà nước Việt Nam;\nTheo đề nghị của Vụ trưởng vụ Thanh toán;\nThông đốc Ngân hàng Nhà nước Việt Nam ban hành Thông tư sửa đổi, bổ sung một số điều của Thống tự\nThông tư Ngân hàng Nhà nước Việt Nam ban hành Thông báo số 23/14/QĐ-NTNN ngày ... của ngân Hàng nhà Nước Ít.\nSố 23/19047/TN-NHNN ngày ... tháng ..., năm ...\nkhoản thanh toán tại tổ chức cung ứng dịch vụ.\nĐiều 1. Sửa đổi, bổ sung một số điều và phụ lục của Thông tư sổ\n23/04/year-TH-NHNN ngày\nngày tháng năm\nA năm 2014 của Ngân hàng Nhà nước Việt Nam hướng dẫn việc mới và sử dụng tài khoản thanh toán tại",
+    "blocks": [
+      {
+        "level": "line",
+        "text": "NGÂN HÀN NHÁ NƯỚC VIỆT Nam\nCONG HOA XÃHỘI CHỦ NGHIÊU NIỀM",
+        "bbox": [
+          53,
+          31,
+          523,
+          50
+        ],
+        "confidence": 96.83072814943863,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "VIỆT NAM Độc lập - Tự do – Hạnh phúc",
+        "bbox": [
+          99,
+          47,
+          477,
+          65
+        ],
+        "confidence": 98.92035256355875
+      },
+      {
+        "level": "line",
+        "text": "Số: 32/",
+        "bbox": [
+          64,
+          76,
+          540,
+          93
+        ],
+        "confidence": 99.88534887846784
+      },
+      {
+        "level": "line",
+        "text": "THÔNG TƯ",
+        "bbox": [
+          334,
+          119,
+          405,
+          135
+        ],
+        "confidence": 99.2046068159042
+      },
+      {
+        "level": "line",
+        "text": "TRONG 10",
+        "bbox": [
+          58,
+          132,
+          683,
+          150
+        ],
+        "confidence": 93.66817001455301,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Cửa đối, bộ đồng một 60 điều giao thông từ quy định. Thay thế bằng hàng nhà nước Việt Nam hướng dẫn việc mở và sử dụng tài khoản thanh toán tại tổ",
+        "bbox": [
+          61,
+          148,
+          679,
+          164
+        ],
+        "confidence": 93.82526771941619,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Chức cung ứng dịch vụ thanh toán",
+        "bbox": [
+          240,
+          163,
+          501,
+          180
+        ],
+        "confidence": 99.06527077338126
+      },
+      {
+        "level": "line",
+        "text": "Căn cứ Luật Ngân hàng Nhà nước Việt Nam số 46/2019/QH-CHQ ngày ... tháng ...",
+        "bbox": [
+          47,
+          206,
+          566,
+          224
+        ],
+        "confidence": 97.47001403689362
+      },
+      {
+        "level": "line",
+        "text": "Căn cứ Luật Ngân hàng Nhà nước Việt Nam số 47/2016/QHĐQG ngày ... tháng ...,",
+        "bbox": [
+          85,
+          220,
+          544,
+          238
+        ],
+        "confidence": 96.65514911904968,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Căn cứ Nghị định số 10/2O/QĐ-CP ngày XX tháng X năm\nXH. của Chính phủ về thanh toán không",
+        "bbox": [
+          85,
+          241,
+          695,
+          259
+        ],
+        "confidence": 95.84484784838196,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Cần có 1\ndùng tiền mặt;",
+        "bbox": [
+          45,
+          255,
+          131,
+          273
+        ],
+        "confidence": 95.14530638522565,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Căn cứ Nghị định số 80/216/NĐ-CP ngày ... tháng ...",
+        "bbox": [
+          85,
+          277,
+          697,
+          294
+        ],
+        "confidence": 97.73023724745813
+      },
+      {
+        "level": "line",
+        "text": "Điều của Nghị định số 10/29/NH-CP ngày ... tháng ..., do đăng ký tại Điều này, được sửa đổi và thay thế theo nghị Định Số:",
+        "bbox": [
+          46,
+          291,
+          694,
+          308
+        ],
+        "confidence": 93.70853125893717,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "tiên mật;",
+        "bbox": [
+          46,
+          306,
+          99,
+          321
+        ],
+        "confidence": 90.48313766504918,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Căn cứ Nghị định số 156/20",
+        "bbox": [
+          85,
+          326,
+          694,
+          346
+        ],
+        "confidence": 99.87904434287327
+      },
+      {
+        "level": "line",
+        "text": "nhiệm vụ, quyền hạn và cơ cấu tổ chức của Ngân hàng Nhà nước Việt Nam;",
+        "bbox": [
+          46,
+          342,
+          484,
+          358
+        ],
+        "confidence": 99.50001425501182
+      },
+      {
+        "level": "line",
+        "text": "Theo đề nghị của Vụ trưởng vụ Thanh toán;",
+        "bbox": [
+          85,
+          361,
+          341,
+          382
+        ],
+        "confidence": 98.80436729926112
+      },
+      {
+        "level": "line",
+        "text": "Thông đốc Ngân hàng Nhà nước Việt Nam ban hành Thông tư sửa đổi, bổ sung một số điều của Thống tự",
+        "bbox": [
+          85,
+          382,
+          695,
+          399
+        ],
+        "confidence": 98.87897142331636
+      },
+      {
+        "level": "line",
+        "text": "Thông tư Ngân hàng Nhà nước Việt Nam ban hành Thông báo số 23/14/QĐ-NTNN ngày ... của ngân Hàng nhà Nước Ít.",
+        "bbox": [
+          46,
+          397,
+          695,
+          414
+        ],
+        "confidence": 94.95649587754937,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Số 23/19047/TN-NHNN ngày ... tháng ..., năm ...\nkhoản thanh toán tại tổ chức cung ứng dịch vụ.",
+        "bbox": [
+          46,
+          410,
+          380,
+          430
+        ],
+        "confidence": 95.85775476315948,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Điều 1. Sửa đổi, bổ sung một số điều và phụ lục của Thông tư sổ\n23/04/year-TH-NHNN ngày\nngày tháng năm",
+        "bbox": [
+          84,
+          432,
+          694,
+          450
+        ],
+        "confidence": 96.66714139357745,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "A năm 2014 của Ngân hàng Nhà nước Việt Nam hướng dẫn việc mới và sử dụng tài khoản thanh toán tại",
+        "bbox": [
+          46,
+          447,
+          694,
+          461
+        ],
+        "confidence": 99.43954476452238
+      }
+    ],
+    "meta": {
+      "model_name": "5CD-AI/Vintern-1B-v3_5",
+      "device": "cuda",
+      "overall_confidence": 96.92819557249938,
+      "bounding_boxes": {
+        "enabled": true,
+        "count": 22,
+        "method": "craft_poly"
+      },
+      "qa_flags": {
+        "threshold_yellow": 97.0,
+        "threshold_red": 90.0,
+        "flagged_blocks": 11,
+        "flagged_level_counts": {
+          "yellow": 11,
+          "red": 0
+        },
+        "page_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "confidence": 96.92819557249938
+        }
+      }
+    }
+  }
+}
