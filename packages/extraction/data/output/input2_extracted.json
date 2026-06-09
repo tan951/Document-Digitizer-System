@@ -1,12 +1,19 @@
 {
   "request_id": "b73d6b88-4e45-47d4-b2d1-7727ee220002",
   "document_id": "bhxh_doc_1",
-  "timestamp": "2026-05-29T08:56:29.184271Z",
+  "timestamp": "2026-06-08T09:03:46.905860Z",
   "status": "success",
   "error": null,
   "payload": {
     "document_type": "bao_hiem",
     "routing_confidence": 1.0,
+    "field_coverage": 0.92,
+    "missing_required_fields": [
+      {
+        "field": "so_bhxh",
+        "reason": "extraction_failed"
+      }
+    ],
     "extracted_fields": {
       "fixed": [
         {
@@ -36,60 +43,12 @@
         {
           "field_name": "ngay_thang_nam",
           "value": "2026-05-20",
-          "confidence": 0.8,
+          "confidence": 1.0,
           "bbox": [
             61,
             235,
             630,
             253
-          ],
-          "method": "regex"
-        },
-        {
-          "field_name": "so_tien",
-          "value": "152.000.000 đồng",
-          "confidence": 1.0,
-          "bbox": [
-            61,
-            257,
-            630,
-            275
-          ],
-          "method": "regex"
-        },
-        {
-          "field_name": "ma_don_vi",
-          "value": "DN889201",
-          "confidence": 1.0,
-          "bbox": [
-            60,
-            320,
-            350,
-            338
-          ],
-          "method": "regex"
-        },
-        {
-          "field_name": "so_dien_thoai",
-          "value": "0909123456",
-          "confidence": 1.0,
-          "bbox": [
-            60,
-            370,
-            500,
-            388
-          ],
-          "method": "regex"
-        },
-        {
-          "field_name": "dia_chi",
-          "value": "125 Lý Thường Kiệt, Quận 10, TP. Hồ Chí Minh",
-          "confidence": 1.0,
-          "bbox": [
-            60,
-            392,
-            500,
-            410
           ],
           "method": "regex"
         },
@@ -118,7 +77,80 @@
           "method": "pattern_match"
         }
       ],
-      "dynamic": []
+      "dynamic": [
+        {
+          "field_name": "ten_don_vi",
+          "value": "Công ty TNHH Minh Phát",
+          "confidence": 1.0,
+          "bbox": [
+            61,
+            191,
+            630,
+            209
+          ],
+          "method": "regex_label"
+        },
+        {
+          "field_name": "so_tien",
+          "value": "152.000.000 đồng",
+          "confidence": 1.0,
+          "bbox": [
+            61,
+            257,
+            630,
+            275
+          ],
+          "method": "regex_label"
+        },
+        {
+          "field_name": "ma_don_vi",
+          "value": "DN889201",
+          "confidence": 1.0,
+          "bbox": [
+            60,
+            320,
+            350,
+            338
+          ],
+          "method": "regex_label"
+        },
+        {
+          "field_name": "thoi_han_dong",
+          "value": "từ tháng 01/2026 đến tháng 05/2026",
+          "confidence": 1.0,
+          "bbox": [
+            60,
+            342,
+            350,
+            360
+          ],
+          "method": "regex_label"
+        },
+        {
+          "field_name": "dia_chi",
+          "value": "125 Lý Thường Kiệt, Quận 10, Thành phố. Hồ Chí Minh",
+          "confidence": 1.0,
+          "bbox": [
+            60,
+            392,
+            500,
+            410
+          ],
+          "method": "regex_label"
+        },
+        {
+          "field_name": "so_dien_thoai",
+          "value": "0909123456",
+          "confidence": 0.756,
+          "bbox": [
+            60,
+            370,
+            500,
+            388
+          ],
+          "method": "gliner_ner"
+        }
+      ]
     },
     "correction_log": {
       "enabled": true,
@@ -145,6 +177,13 @@
           "original": "BẢO HIỂM XÃ HỘl VIỆT NAM",
           "corrected": "BẢO HIỂM XÃ HỘI VIỆT NAM",
           "field": "ten_co_quan_to_chuc",
+          "method": "pipeline_correction",
+          "sub_method": "hard_ocr"
+        },
+        {
+          "original": "125 Lý Thường Kiệt, Quận 10, TP. Hồ Chí Minh.",
+          "corrected": "125 Lý Thường Kiệt, Quận 10, Thành phố. Hồ Chí Minh",
+          "field": "dia_chi",
           "method": "pipeline_correction"
         }
       ]

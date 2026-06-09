@@ -1,12 +1,14 @@
 {
   "request_id": "f9c3b7e1-7b1a-4f0a-a4d2-cc4a23e11001",
   "document_id": "court_doc_1",
-  "timestamp": "2026-05-29T08:56:22.560336Z",
+  "timestamp": "2026-06-08T09:03:36.657407Z",
   "status": "success",
   "error": null,
   "payload": {
-    "document_type": "toa_an",
+    "document_type": "toa_an_dan_su",
     "routing_confidence": 1.0,
+    "field_coverage": 1.0,
+    "missing_required_fields": [],
     "extracted_fields": {
       "fixed": [
         {
@@ -23,7 +25,7 @@
         },
         {
           "field_name": "ky_hieu",
-          "value": "QĐ-ST",
+          "value": "Quy",
           "confidence": 1.0,
           "bbox": [
             120,
@@ -36,60 +38,12 @@
         {
           "field_name": "ngay_thang_nam",
           "value": "2026-03-12",
-          "confidence": 0.9,
+          "confidence": 1.0,
           "bbox": [
             120,
             180,
             480,
             197
-          ],
-          "method": "regex"
-        },
-        {
-          "field_name": "nguyen_don",
-          "value": "Công ty Cổ phần Đầu tư Hoàng Minh",
-          "confidence": 1.0,
-          "bbox": [
-            55,
-            300,
-            610,
-            320
-          ],
-          "method": "regex"
-        },
-        {
-          "field_name": "bi_don",
-          "value": "Công ty TNHH Thương mại An Phát",
-          "confidence": 1.0,
-          "bbox": [
-            55,
-            325,
-            610,
-            345
-          ],
-          "method": "regex"
-        },
-        {
-          "field_name": "dia_chi",
-          "value": "Số 15 Nguyễn Trãi, quận Thanh Xuân, Hà Nội",
-          "confidence": 1.0,
-          "bbox": [
-            55,
-            349,
-            610,
-            369
-          ],
-          "method": "regex"
-        },
-        {
-          "field_name": "gia_tri_tranh_chap",
-          "value": "2.500.000.000 đồng",
-          "confidence": 1.0,
-          "bbox": [
-            55,
-            374,
-            650,
-            394
           ],
           "method": "regex"
         },
@@ -120,16 +74,52 @@
       ],
       "dynamic": [
         {
-          "field_name": "so_tien",
+          "field_name": "nguyen_don",
+          "value": "Công ty Cổ phần Đầu tư Hoàng Minh",
+          "confidence": 1.0,
+          "bbox": [
+            55,
+            300,
+            610,
+            320
+          ],
+          "method": "regex_label"
+        },
+        {
+          "field_name": "bi_don",
+          "value": "Công ty TNHH Thương mại An Phát",
+          "confidence": 1.0,
+          "bbox": [
+            55,
+            325,
+            610,
+            345
+          ],
+          "method": "regex_label"
+        },
+        {
+          "field_name": "dia_chi",
+          "value": "Số 15 Nguyễn Trãi, quận Thanh Xuân, Hà Nội",
+          "confidence": 1.0,
+          "bbox": [
+            55,
+            349,
+            610,
+            369
+          ],
+          "method": "regex_label"
+        },
+        {
+          "field_name": "gia_tri_tranh_chap",
           "value": "2.500.000.000 đồng",
-          "confidence": 0.844,
+          "confidence": 1.0,
           "bbox": [
             55,
             374,
             650,
             394
           ],
-          "method": "gliner_ner"
+          "method": "regex_label"
         }
       ]
     },
@@ -137,14 +127,14 @@
       "enabled": true,
       "changes": [
         {
-          "original": "15/2026/QĐ-ST",
+          "original": "15/2026/Quy",
           "corrected": "15/2026",
           "field": "so_quyet_dinh",
           "method": "pipeline_correction"
         },
         {
-          "original": "15/2026/QĐ-ST",
-          "corrected": "QĐ-ST",
+          "original": "15/2026/Quy",
+          "corrected": "Quy",
           "field": "ky_hieu",
           "method": "pipeline_correction"
         },
@@ -158,7 +148,15 @@
           "original": "TÒA ÁN NHÂN DÂN THÀNH PHÓ HÀ NỘI",
           "corrected": "TÒA ÁN NHÂN DÂN THÀNH PHỐ HÀ NỘI",
           "field": "ten_co_quan_to_chuc",
-          "method": "pipeline_correction"
+          "method": "pipeline_correction",
+          "sub_method": "hard_ocr"
+        },
+        {
+          "original": "Công ty Cổ phần Đầu tư H0àng Minh.",
+          "corrected": "Công ty Cổ phần Đầu tư Hoàng Minh",
+          "field": "nguyen_don",
+          "method": "pipeline_correction",
+          "sub_method": "vietnamese_model"
         }
       ]
     }

@@ -1,12 +1,23 @@
 {
   "request_id": "9991adb6-c3bd-43aa-a3ba-05ff2173e53e",
   "document_id": "criminal_doc_1",
-  "timestamp": "2026-05-29T08:56:34.514920Z",
+  "timestamp": "2026-06-08T09:03:54.564755Z",
   "status": "success",
   "error": null,
   "payload": {
-    "document_type": "toa_an",
+    "document_type": "toa_an_hinh_su",
     "routing_confidence": 1.0,
+    "field_coverage": 0.78,
+    "missing_required_fields": [
+      {
+        "field": "ngay_thang_nam",
+        "reason": "extraction_failed"
+      },
+      {
+        "field": "toi_danh",
+        "reason": "extraction_failed"
+      }
+    ],
     "extracted_fields": {
       "fixed": [
         {
@@ -14,10 +25,10 @@
           "value": "102/2026",
           "confidence": 1.0,
           "bbox": [
-            55,
-            88,
-            300,
-            106
+            52,
+            126,
+            620,
+            146
           ],
           "method": "regex"
         },
@@ -26,46 +37,10 @@
           "value": "HS-ST",
           "confidence": 1.0,
           "bbox": [
-            55,
-            88,
-            300,
-            106
-          ],
-          "method": "regex"
-        },
-        {
-          "field_name": "ten_bi_cao",
-          "value": "Trần Văn Hùng",
-          "confidence": 0.8,
-          "bbox": [
-            280,
-            176,
-            390,
-            199
-          ],
-          "method": "regex"
-        },
-        {
-          "field_name": "dia_chi",
-          "value": "phường Long Bình, thành phố Biên Hòa, tỉnh Đồng Nai",
-          "confidence": 1.0,
-          "bbox": [
-            280,
-            203,
-            390,
-            226
-          ],
-          "method": "regex"
-        },
-        {
-          "field_name": "gia_tri_tranh_chap",
-          "value": "85.000.000 đồng",
-          "confidence": 1.0,
-          "bbox": [
-            280,
-            230,
-            390,
-            253
+            52,
+            126,
+            620,
+            146
           ],
           "method": "regex"
         },
@@ -74,36 +49,60 @@
           "value": "TÒA ÁN NHÂN DÂN TỈNH ĐỒNG NAI",
           "confidence": 0.9,
           "bbox": [
-            48,
-            26,
-            590,
-            46
+            52,
+            54,
+            620,
+            74
           ],
           "method": "pattern_match"
         },
         {
           "field_name": "ten_loai_van_ban",
           "value": "BẢN ÁN",
-          "confidence": 0.992,
+          "confidence": 0.8,
           "bbox": [
-            280,
-            122,
-            390,
-            145
+            52,
+            150,
+            620,
+            170
           ],
           "method": "pattern_match"
         }
       ],
       "dynamic": [
         {
-          "field_name": "so_tien",
-          "value": "85.000.000 đồng",
-          "confidence": 0.891,
+          "field_name": "dia_chi",
+          "value": "phường Long Bình, thành phố Biên Hòa, tỉnh Đồng Nai",
+          "confidence": 1.0,
           "bbox": [
-            280,
-            230,
-            390,
-            253
+            52,
+            222,
+            620,
+            242
+          ],
+          "method": "regex_label"
+        },
+        {
+          "field_name": "gia_tri_tai_san_chiem_doat",
+          "value": "85.000.000",
+          "confidence": 0.8,
+          "bbox": [
+            52,
+            246,
+            620,
+            266
+          ],
+          "method": "regex_label"
+        },
+        {
+          "field_name": "ten_bi_cao",
+          "value": "Trần Văn Hùng",
+          "confidence": 0.706,
+          "bbox": [
+            52,
+            198,
+            620,
+            218
           ],
           "method": "gliner_ner"
         }

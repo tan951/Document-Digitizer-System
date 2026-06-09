@@ -1,12 +1,43 @@
 {
   "request_id": "f3b3902d-aa48-4176-b236-e537480c9781",
   "document_id": "bhxh_doc_2",
-  "timestamp": "2026-05-29T08:56:31.557067Z",
+  "timestamp": "2026-06-08T09:03:51.871701Z",
   "status": "success",
   "error": null,
   "payload": {
     "document_type": "bao_hiem",
     "routing_confidence": 1.0,
+    "field_coverage": 0.42,
+    "missing_required_fields": [
+      {
+        "field": "ngay_thang_nam",
+        "reason": "not_in_source"
+      },
+      {
+        "field": "so_bhxh",
+        "reason": "extraction_failed"
+      },
+      {
+        "field": "ma_don_vi",
+        "reason": "extraction_failed"
+      },
+      {
+        "field": "so_tien",
+        "reason": "extraction_failed"
+      },
+      {
+        "field": "thoi_han_dong",
+        "reason": "extraction_failed"
+      },
+      {
+        "field": "so_dien_thoai",
+        "reason": "extraction_failed"
+      },
+      {
+        "field": "dia_chi",
+        "reason": "extraction_failed"
+      }
+    ],
     "extracted_fields": {
       "fixed": [
         {
@@ -14,22 +45,22 @@
           "value": "455",
           "confidence": 1.0,
           "bbox": [
-            60,
-            92,
-            280,
-            110
+            52,
+            126,
+            620,
+            146
           ],
           "method": "regex"
         },
         {
           "field_name": "ky_hieu",
-          "value": "QĐ-BHXH",
+          "value": "Quy",
           "confidence": 1.0,
           "bbox": [
-            60,
-            92,
-            280,
-            110
+            52,
+            126,
+            620,
+            146
           ],
           "method": "regex"
         },
@@ -39,39 +70,52 @@
           "confidence": 0.9,
           "bbox": [
             52,
-            30,
-            600,
-            50
+            54,
+            620,
+            74
           ],
           "method": "pattern_match"
         },
         {
           "field_name": "ten_loai_van_ban",
           "value": "QUYẾT ĐỊNH",
-          "confidence": 0.99,
+          "confidence": 0.8,
           "bbox": [
-            255,
-            125,
-            450,
-            148
+            52,
+            150,
+            620,
+            170
           ],
           "method": "pattern_match"
         }
       ],
-      "dynamic": []
+      "dynamic": [
+        {
+          "field_name": "ten_don_vi",
+          "value": "Công ty TNHH Sản xuất Đại Nam",
+          "confidence": 1.0,
+          "bbox": [
+            52,
+            198,
+            620,
+            218
+          ],
+          "method": "regex_label"
+        }
+      ]
     },
     "correction_log": {
       "enabled": true,
       "changes": [
         {
-          "original": "455/QĐ-BHXH",
+          "original": "455/Quy",
           "corrected": "455",
           "field": "so_quyet_dinh",
           "method": "pipeline_correction"
         },
         {
-          "original": "455/QĐ-BHXH",
-          "corrected": "QĐ-BHXH",
+          "original": "455/Quy",
+          "corrected": "Quy",
           "field": "ky_hieu",
           "method": "pipeline_correction"
         }

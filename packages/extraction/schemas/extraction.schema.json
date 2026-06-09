@@ -28,6 +28,18 @@
       "properties": {
         "document_type": { "type": "string" },
         "routing_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "field_coverage": { "type": "number", "minimum": 0, "maximum": 1 },
+        "missing_required_fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["field", "reason"],
+            "properties": {
+              "field": { "type": "string" },
+              "reason": { "type": "string", "enum": ["not_in_source", "extraction_failed"] }
+            }
+          }
+        },
         "extracted_fields": {
           "type": "object",
           "properties": {
@@ -49,11 +61,16 @@
               "type": "array",
               "items": {
                 "type": "object",
-                "required": ["original", "corrected", "field"],
+                "required": ["original", "corrected", "field", "method"],
                 "properties": {
                   "original": { "type": "string" },
                   "corrected": { "type": "string" },
-                  "field": { "type": "string" }
+                  "field": { "type": "string" },
+                  "method": { "type": "string" },
+                  "sub_method": {
+                    "type": "string",
+                    "enum": ["hard_ocr", "symspell", "vietnamese_model", "pipeline_correction"]
+                  }
                 }
               }
             }

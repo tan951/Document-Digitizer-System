@@ -1,12 +1,19 @@
 {
   "request_id": "f6c6298c-c33b-48fd-b40b-68ec14870c72",
   "document_id": "ubnd_doc_1",
-  "timestamp": "2026-05-29T08:56:30.266963Z",
+  "timestamp": "2026-06-08T09:03:49.764670Z",
   "status": "success",
   "error": null,
   "payload": {
     "document_type": "ubnd",
     "routing_confidence": 1.0,
+    "field_coverage": 0.88,
+    "missing_required_fields": [
+      {
+        "field": "nguoi_ky",
+        "reason": "not_in_source"
+      }
+    ],
     "extracted_fields": {
       "fixed": [
         {
@@ -14,10 +21,10 @@
           "value": "88",
           "confidence": 1.0,
           "bbox": [
-            55,
-            90,
-            260,
-            108
+            52,
+            126,
+            620,
+            146
           ],
           "method": "regex"
         },
@@ -26,51 +33,76 @@
           "value": "CV-UBND",
           "confidence": 1.0,
           "bbox": [
-            55,
-            90,
-            260,
-            108
+            52,
+            126,
+            620,
+            146
           ],
           "method": "regex"
         },
         {
           "field_name": "ngay_thang_nam",
           "value": "2026-07-15",
-          "confidence": 0.85,
+          "confidence": 0.4,
           "bbox": [
-            260,
-            207,
-            420,
-            232
+            0,
+            0,
+            0,
+            0
           ],
-          "method": "regex"
+          "method": "regex_fallback"
         },
         {
           "field_name": "ten_co_quan_to_chuc",
           "value": "ỦY BAN NHÂN DÂN THÀNH PHỐ ĐÀ NẴNG",
           "confidence": 0.9,
           "bbox": [
-            50,
-            28,
-            610,
-            48
+            52,
+            54,
+            620,
+            74
           ],
           "method": "pattern_match"
         },
         {
           "field_name": "ten_loai_van_ban",
           "value": "CÔNG VĂN",
-          "confidence": 0.991,
+          "confidence": 0.8,
           "bbox": [
-            260,
-            120,
-            420,
-            145
+            52,
+            150,
+            620,
+            170
           ],
           "method": "pattern_match"
         }
       ],
-      "dynamic": []
+      "dynamic": [
+        {
+          "field_name": "kinh_gui",
+          "value": "Các sở, ban, ngành trực thuộc UBND thành phố",
+          "confidence": 1.0,
+          "bbox": [
+            52,
+            198,
+            620,
+            218
+          ],
+          "method": "regex_label"
+        },
+        {
+          "field_name": "trich_yeu",
+          "value": "Về việc triển khai kế hoạch chuyển đổi số năm 2026",
+          "confidence": 0.39,
+          "bbox": [
+            52,
+            174,
+            620,
+            194
+          ],
+          "method": "gliner_ner"
+        }
+      ]
     },
     "correction_log": {
       "enabled": true,
@@ -92,6 +124,20 @@
           "corrected": "2026-07-15",
           "field": "ngay_thang_nam",
           "method": "pipeline_correction"
+        },
+        {
+          "original": "Các sở, ban ngành trực thuộc UBND thành phố.",
+          "corrected": "Các sở, ban, ngành trực thuộc UBND thành phố",
+          "field": "kinh_gui",
+          "method": "pipeline_correction",
+          "sub_method": "vietnamese_model"
+        },
+        {
+          "original": "Về việc triển khai kế h0ạch chuyển đổi số năm 2026",
+          "corrected": "Về việc triển khai kế hoạch chuyển đổi số năm 2026",
+          "field": "trich_yeu",
+          "method": "pipeline_correction",
+          "sub_method": "vietnamese_model"
         }
       ]
     }
