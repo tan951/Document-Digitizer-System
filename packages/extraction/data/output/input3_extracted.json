@@ -1,17 +1,17 @@
 {
   "request_id": "f6c6298c-c33b-48fd-b40b-68ec14870c72",
   "document_id": "ubnd_doc_1",
-  "timestamp": "2026-06-08T09:03:49.764670Z",
+  "timestamp": "2026-06-12T09:53:01.827409Z",
   "status": "success",
   "error": null,
   "payload": {
     "document_type": "ubnd",
     "routing_confidence": 1.0,
-    "field_coverage": 0.88,
+    "field_coverage": 1.0,
     "missing_required_fields": [
       {
-        "field": "nguoi_ky",
-        "reason": "not_in_source"
+        "field": "ngay_thang_nam",
+        "reason": "extraction_failed"
       }
     ],
     "extracted_fields": {
@@ -41,18 +41,6 @@
           "method": "regex"
         },
         {
-          "field_name": "ngay_thang_nam",
-          "value": "2026-07-15",
-          "confidence": 0.4,
-          "bbox": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "method": "regex_fallback"
-        },
-        {
           "field_name": "ten_co_quan_to_chuc",
           "value": "ỦY BAN NHÂN DÂN THÀNH PHỐ ĐÀ NẴNG",
           "confidence": 0.9,
@@ -80,7 +68,7 @@
       "dynamic": [
         {
           "field_name": "kinh_gui",
-          "value": "Các sở, ban, ngành trực thuộc UBND thành phố",
+          "value": "Các sở, ban ngành trực thuộc UBND thành phố",
           "confidence": 1.0,
           "bbox": [
             52,
@@ -89,57 +77,12 @@
             218
           ],
           "method": "regex_label"
-        },
-        {
-          "field_name": "trich_yeu",
-          "value": "Về việc triển khai kế hoạch chuyển đổi số năm 2026",
-          "confidence": 0.39,
-          "bbox": [
-            52,
-            174,
-            620,
-            194
-          ],
-          "method": "gliner_ner"
         }
       ]
     },
     "correction_log": {
       "enabled": true,
-      "changes": [
-        {
-          "original": "88/CV-UBND",
-          "corrected": "88",
-          "field": "so_quyet_dinh",
-          "method": "pipeline_correction"
-        },
-        {
-          "original": "88/CV-UBND",
-          "corrected": "CV-UBND",
-          "field": "ky_hieu",
-          "method": "pipeline_correction"
-        },
-        {
-          "original": "15/07/2026",
-          "corrected": "2026-07-15",
-          "field": "ngay_thang_nam",
-          "method": "pipeline_correction"
-        },
-        {
-          "original": "Các sở, ban ngành trực thuộc UBND thành phố.",
-          "corrected": "Các sở, ban, ngành trực thuộc UBND thành phố",
-          "field": "kinh_gui",
-          "method": "pipeline_correction",
-          "sub_method": "vietnamese_model"
-        },
-        {
-          "original": "Về việc triển khai kế h0ạch chuyển đổi số năm 2026",
-          "corrected": "Về việc triển khai kế hoạch chuyển đổi số năm 2026",
-          "field": "trich_yeu",
-          "method": "pipeline_correction",
-          "sub_method": "vietnamese_model"
-        }
-      ]
+      "changes": []
     }
   }
 }

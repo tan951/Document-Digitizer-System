@@ -1,0 +1,500 @@
+{
+  "request_id": "72811048-1ec3-4b11-b2f1-35a6eeca7d39",
+  "document_id": "local_doc_10",
+  "module": "ocr",
+  "version": "1.0.0",
+  "timestamp": "2026-06-09T09:17:23.025277Z",
+  "status": "success",
+  "error": null,
+  "payload": {
+    "page": 10,
+    "input_image": "..\\preprocess\\data\\output\\z7917071078814_ceb5809eb236c31512176f542f61fa90_clean.png",
+    "engine": "vintern",
+    "language": "vie",
+    "text": "CỘNG HÒA XÃ HOÀ NGHĨ A VIỆT NAM\nĐộc lập - Tự do – hạnh phúc\nCộng hòa xã hội chủ nghĩa Việt Nam\nĐộc lập - Tự do – Hạnh phúc\nMAU\nAM\nTÒA ÁN - T. CẢ MAU\nSố: 54\nTòa án nhân dân\nCộng hòa xã hội chủ nghĩa Việt Nam\nTòa án nhân dân tỉnh Cà Mau\nĐộc Lập - Tự Do – Hạnh Phúc\nSố: 356/2019/QĐ-PT Cà Mau, ngày ... tháng ...\nQUYẾT ĐỊNH\nĐÌN CHỈ XÉ TỬ PHÚC THẢM VỤ Án DÂN SỰ\nTOÀ ÁN NHÂN Dân TỈNH CẢ MAU\nNHẬN THẤY\nSau khi xét xử sơ thẩm, bản án dân sự số: 16/209/D&ST， ngày...\nSau khi xét xử sơ thẩm, bản án số: 106/2593/D.84 ngày ... tháng năm ...\n...từ thành phố Cà Mâu bị kháng cáo như sau.:\nNgày 30 tháng September năm2OO9, ông Phan Hoàng Khải là bị đơn kháng cáo với\nNgày 30 tháng ... năm... ông Trần Hoàng Khiêm đã đề nghị bồi thường số tiền đặt cọc là:1.5 triệu đồng cho Ông Lê Duy Nam vì che hàng hóa không thành bởi điều kiện khách quan bản\nHội đồng, ông không đóng ý đối với việc mua bán. Duy Nam vì cho rằng Việc muốn thành là do điều kiện khách quan\nthân ông không mong muốn. Nay Ông yêu cầu Tòa án cấp phúc thẩm xem xét lại\nToàn bộ bản án sơ thẩm.\nXÉT THẤY\nNgày 10 tháng XII năm\n2.\nyêu cầu kháng cáo trong vụ án: “đổi tiền cọc” với ông Lê Duy Nam. Thấy rằng\nViệc rút kháng cáo của ông Phan Hoàng Khải là hoàn toàn tự nguyện, phù hợp với\nViệc rút kháng cự của ông Thân Hoàng quy định về hòa giải phù hợp với pháp luật nên được Hội đồng xét xử phúc thẩm xem kết chấp nhận.\nCăn cứ vào điểm b khoản 1 Điều số và Điểm Số Bộ luật tố tụng dân sự;\nPháp lệnh số 10/2OQ9/P-UBTVHQ ngày:7.\nQuốc hội quy định về án phí, lệ fee Tòa án.\nQUYẾT ĐỊNH\n1/ Định chỉ xét xử phúc thẩm vụ án dân sự thụ lý số: 3092OYTLPT-DS\nĐịnh cư xã phúc thành vụ án dân sự thụ lý số 30. Ngày ngày tháng năm, vế việc “đói tiền đặt cọc” giữa:\nNguyên đơn: Ông Lê Duy Nam - sinh năm 1970\nNgười bán: Ông Lê Đuy Nam\nSố 207, số nhà.\ntỉnh Cà Mau.\nBị đơn: Ông Phan Hoàng Khải - sinh năm 1964\nBà Trần Thị Sánh (Nga Sơn)\nBà Trần Thị Sánh (Ngọc Sơn) - sinh năm: 1963\nBùi Thị Bỉnh (Ngô Bám) - Sinh Năm. 1963\nĐịa chỉ: Ấp Bình Định, xã Tân Thành， thành phố Cà Mau,tĩnh Ca Mai\n2/ Bản án dân sự sơ thẩm số 1689045/DS-ST, ngày ... tháng ...\nA Tòa án nhân dân thành phố Cà Mau có hiệu lực pháp luật kể từ năm...\n27 Bản án dân sự số 106/TT.ĐS-TI, ngày ... tháng ...\ncủa Tòa án nhân dân thành phố Cà Mau có hiệu lực pháp luật kể từ\nngày ra quyết định này.\nđịnh này.",
+    "blocks": [
+      {
+        "level": "line",
+        "text": "CỘNG HÒA XÃ HOÀ NGHĨ A VIỆT NAM\nĐộc lập - Tự do – hạnh phúc",
+        "bbox": [
+          642,
+          51,
+          1174,
+          117
+        ],
+        "confidence": 98.50561370864031
+      },
+      {
+        "level": "line",
+        "text": "Cộng hòa xã hội chủ nghĩa Việt Nam\nĐộc lập - Tự do – Hạnh phúc",
+        "bbox": [
+          193,
+          87,
+          1070,
+          152
+        ],
+        "confidence": 98.39827345644463
+      },
+      {
+        "level": "line",
+        "text": "MAU",
+        "bbox": [
+          332,
+          144,
+          412,
+          168
+        ],
+        "confidence": 98.85716037057635
+      },
+      {
+        "level": "line",
+        "text": "TÒA ÁN - T. CẢ MAU\nSố: 54",
+        "bbox": [
+          1310,
+          268,
+          1562,
+          319
+        ],
+        "confidence": 97.99771310328991
+      },
+      {
+        "level": "line",
+        "text": "Tòa án nhân dân\nCộng hòa xã hội chủ nghĩa Việt Nam",
+        "bbox": [
+          488,
+          302,
+          1541,
+          353
+        ],
+        "confidence": 98.74762448729096
+      },
+      {
+        "level": "line",
+        "text": "Tòa án nhân dân tỉnh Cà Mau\nĐộc Lập - Tự Do – Hạnh Phúc",
+        "bbox": [
+          508,
+          345,
+          1317,
+          382
+        ],
+        "confidence": 98.62226224235376
+      },
+      {
+        "level": "line",
+        "text": "Số: 356/2019/QĐ-PT Cà Mau, ngày ... tháng ...",
+        "bbox": [
+          480,
+          404,
+          1452,
+          440
+        ],
+        "confidence": 97.89950952240525
+      },
+      {
+        "level": "line",
+        "text": "QUYẾT ĐỊNH\nĐÌN CHỈ XÉ TỬ PHÚC THẢM VỤ Án DÂN SỰ",
+        "bbox": [
+          0,
+          488,
+          1313,
+          559
+        ],
+        "confidence": 98.73142581029283
+      },
+      {
+        "level": "line",
+        "text": "TOÀ ÁN NHÂN Dân TỈNH CẢ MAU",
+        "bbox": [
+          711,
+          575,
+          1212,
+          612
+        ],
+        "confidence": 99.23416676619078
+      },
+      {
+        "level": "line",
+        "text": "NHẬN THẤY",
+        "bbox": [
+          862,
+          633,
+          1058,
+          680
+        ],
+        "confidence": 99.00350447890159
+      },
+      {
+        "level": "line",
+        "text": "Sau khi xét xử sơ thẩm, bản án dân sự số: 16/209/D&ST， ngày...",
+        "bbox": [
+          531,
+          701,
+          1481,
+          741
+        ],
+        "confidence": 97.88922568181293
+      },
+      {
+        "level": "line",
+        "text": "Sau khi xét xử sơ thẩm, bản án số: 106/2593/D.84 ngày ... tháng năm ...\n...từ thành phố Cà Mâu bị kháng cáo như sau.:",
+        "bbox": [
+          447,
+          729,
+          1385,
+          780
+        ],
+        "confidence": 94.3738613598606,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Ngày 30 tháng September năm2OO9, ông Phan Hoàng Khải là bị đơn kháng cáo với",
+        "bbox": [
+          523,
+          780,
+          1489,
+          824
+        ],
+        "confidence": 98.87709507466788
+      },
+      {
+        "level": "line",
+        "text": "Ngày 30 tháng ... năm... ông Trần Hoàng Khiêm đã đề nghị bồi thường số tiền đặt cọc là:1.5 triệu đồng cho Ông Lê Duy Nam vì che hàng hóa không thành bởi điều kiện khách quan bản",
+        "bbox": [
+          439,
+          810,
+          1489,
+          858
+        ],
+        "confidence": 93.93528848043096,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Hội đồng, ông không đóng ý đối với việc mua bán. Duy Nam vì cho rằng Việc muốn thành là do điều kiện khách quan",
+        "bbox": [
+          435,
+          845,
+          1493,
+          891
+        ],
+        "confidence": 95.28473685912377,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "thân ông không mong muốn. Nay Ông yêu cầu Tòa án cấp phúc thẩm xem xét lại",
+        "bbox": [
+          436,
+          884,
+          1492,
+          920
+        ],
+        "confidence": 99.47162984630947
+      },
+      {
+        "level": "line",
+        "text": "Toàn bộ bản án sơ thẩm.",
+        "bbox": [
+          432,
+          924,
+          728,
+          952
+        ],
+        "confidence": 99.49709716738533
+      },
+      {
+        "level": "line",
+        "text": "XÉT THẤY",
+        "bbox": [
+          868,
+          968,
+          1040,
+          1004
+        ],
+        "confidence": 98.0984351091239
+      },
+      {
+        "level": "line",
+        "text": "Ngày 10 tháng XII năm\n2.",
+        "bbox": [
+          500,
+          1028,
+          1500,
+          1068
+        ],
+        "confidence": 96.29251190677682,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "yêu cầu kháng cáo trong vụ án: “đổi tiền cọc” với ông Lê Duy Nam. Thấy rằng",
+        "bbox": [
+          415,
+          1063,
+          1505,
+          1106
+        ],
+        "confidence": 99.0325660890871
+      },
+      {
+        "level": "line",
+        "text": "Việc rút kháng cáo của ông Phan Hoàng Khải là hoàn toàn tự nguyện, phù hợp với",
+        "bbox": [
+          416,
+          1103,
+          1504,
+          1140
+        ],
+        "confidence": 99.89713068148762
+      },
+      {
+        "level": "line",
+        "text": "Việc rút kháng cự của ông Thân Hoàng quy định về hòa giải phù hợp với pháp luật nên được Hội đồng xét xử phúc thẩm xem kết chấp nhận.",
+        "bbox": [
+          407,
+          1129,
+          1481,
+          1177
+        ],
+        "confidence": 96.43321985380344,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Căn cứ vào điểm b khoản 1 Điều số và Điểm Số Bộ luật tố tụng dân sự;",
+        "bbox": [
+          491,
+          1184,
+          1513,
+          1233
+        ],
+        "confidence": 98.22399374191274
+      },
+      {
+        "level": "line",
+        "text": "Pháp lệnh số 10/2OQ9/P-UBTVHQ ngày:7.",
+        "bbox": [
+          399,
+          1227,
+          1513,
+          1273
+        ],
+        "confidence": 95.44559937199033,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Quốc hội quy định về án phí, lệ fee Tòa án.",
+        "bbox": [
+          400,
+          1268,
+          980,
+          1308
+        ],
+        "confidence": 98.59286871538662
+      },
+      {
+        "level": "line",
+        "text": "QUYẾT ĐỊNH",
+        "bbox": [
+          836,
+          1332,
+          1060,
+          1372
+        ],
+        "confidence": 99.77141643887111
+      },
+      {
+        "level": "line",
+        "text": "1/ Định chỉ xét xử phúc thẩm vụ án dân sự thụ lý số: 3092OYTLPT-DS",
+        "bbox": [
+          476,
+          1400,
+          1524,
+          1440
+        ],
+        "confidence": 98.07529920074244
+      },
+      {
+        "level": "line",
+        "text": "Định cư xã phúc thành vụ án dân sự thụ lý số 30. Ngày ngày tháng năm, vế việc “đói tiền đặt cọc” giữa:",
+        "bbox": [
+          379,
+          1432,
+          1201,
+          1485
+        ],
+        "confidence": 94.21310532877733,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Nguyên đơn: Ông Lê Duy Nam - sinh năm 1970",
+        "bbox": [
+          464,
+          1491,
+          1164,
+          1536
+        ],
+        "confidence": 99.77049278881843
+      },
+      {
+        "level": "line",
+        "text": "Người bán: Ông Lê Đuy Nam\nSố 207, số nhà.",
+        "bbox": [
+          459,
+          1530,
+          1533,
+          1585
+        ],
+        "confidence": 90.32068818913368,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "tỉnh Cà Mau.",
+        "bbox": [
+          368,
+          1576,
+          556,
+          1608
+        ],
+        "confidence": 99.36373052210843
+      },
+      {
+        "level": "line",
+        "text": "Bị đơn: Ông Phan Hoàng Khải - sinh năm 1964\nBà Trần Thị Sánh (Nga Sơn)",
+        "bbox": [
+          451,
+          1629,
+          1161,
+          1689
+        ],
+        "confidence": 97.66655142097295
+      },
+      {
+        "level": "line",
+        "text": "Bà Trần Thị Sánh (Ngọc Sơn) - sinh năm: 1963",
+        "bbox": [
+          567,
+          1674,
+          1289,
+          1730
+        ],
+        "confidence": 98.95227159552395
+      },
+      {
+        "level": "line",
+        "text": "Bùi Thị Bỉnh (Ngô Bám) - Sinh Năm. 1963\nĐịa chỉ: Ấp Bình Định, xã Tân Thành， thành phố Cà Mau,tĩnh Ca Mai",
+        "bbox": [
+          443,
+          1714,
+          1485,
+          1774
+        ],
+        "confidence": 95.37877794461698,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "2/ Bản án dân sự sơ thẩm số 1689045/DS-ST, ngày ... tháng ...\nA Tòa án nhân dân thành phố Cà Mau có hiệu lực pháp luật kể từ năm...",
+        "bbox": [
+          439,
+          1778,
+          1549,
+          1853
+        ],
+        "confidence": 95.99215621299241,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "27 Bản án dân sự số 106/TT.ĐS-TI, ngày ... tháng ...\ncủa Tòa án nhân dân thành phố Cà Mau có hiệu lực pháp luật kể từ\nngày ra quyết định này.",
+        "bbox": [
+          343,
+          1822,
+          1557,
+          1897
+        ],
+        "confidence": 96.86023170151675,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "định này.",
+        "bbox": [
+          338,
+          1873,
+          482,
+          1919
+        ],
+        "confidence": 98.1699008571315
+      }
+    ],
+    "meta": {
+      "model_name": "5CD-AI/Vintern-1B-v3_5",
+      "device": "cuda",
+      "overall_confidence": 97.60785631365451,
+      "bounding_boxes": {
+        "enabled": true,
+        "count": 38,
+        "method": "craft_poly"
+      },
+      "qa_flags": {
+        "threshold_yellow": 97.0,
+        "threshold_red": 90.0,
+        "flagged_blocks": 11,
+        "flagged_level_counts": {
+          "yellow": 11,
+          "red": 0
+        },
+        "page_flag": null
+      }
+    }
+  }
+}

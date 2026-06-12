@@ -1,41 +1,17 @@
 {
   "request_id": "f3b3902d-aa48-4176-b236-e537480c9781",
   "document_id": "bhxh_doc_2",
-  "timestamp": "2026-06-08T09:03:51.871701Z",
+  "timestamp": "2026-06-12T09:53:03.442966Z",
   "status": "success",
   "error": null,
   "payload": {
-    "document_type": "bao_hiem",
+    "document_type": "bao_hiem_quyet_dinh",
     "routing_confidence": 1.0,
-    "field_coverage": 0.42,
+    "field_coverage": 1.0,
     "missing_required_fields": [
       {
         "field": "ngay_thang_nam",
         "reason": "not_in_source"
-      },
-      {
-        "field": "so_bhxh",
-        "reason": "extraction_failed"
-      },
-      {
-        "field": "ma_don_vi",
-        "reason": "extraction_failed"
-      },
-      {
-        "field": "so_tien",
-        "reason": "extraction_failed"
-      },
-      {
-        "field": "thoi_han_dong",
-        "reason": "extraction_failed"
-      },
-      {
-        "field": "so_dien_thoai",
-        "reason": "extraction_failed"
-      },
-      {
-        "field": "dia_chi",
-        "reason": "extraction_failed"
       }
     ],
     "extracted_fields": {
@@ -54,7 +30,7 @@
         },
         {
           "field_name": "ky_hieu",
-          "value": "Quy",
+          "value": "QĐ-BHXH",
           "confidence": 1.0,
           "bbox": [
             52,
@@ -106,20 +82,7 @@
     },
     "correction_log": {
       "enabled": true,
-      "changes": [
-        {
-          "original": "455/Quy",
-          "corrected": "455",
-          "field": "so_quyet_dinh",
-          "method": "pipeline_correction"
-        },
-        {
-          "original": "455/Quy",
-          "corrected": "Quy",
-          "field": "ky_hieu",
-          "method": "pipeline_correction"
-        }
-      ]
+      "changes": []
     }
   }
 }

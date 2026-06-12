@@ -1,13 +1,13 @@
 {
   "request_id": "cba0530b-9aa6-41de-b012-93856d186bff",
   "document_id": "local_doc_5",
-  "timestamp": "2026-06-08T09:03:19.582538Z",
+  "timestamp": "2026-06-12T09:52:54.617883Z",
   "status": "success",
   "error": null,
   "payload": {
     "document_type": "ngan_hang",
     "routing_confidence": 1.0,
-    "field_coverage": 0.8,
+    "field_coverage": 1.0,
     "missing_required_fields": [
       {
         "field": "ngay_thang_nam",
@@ -18,25 +18,25 @@
       "fixed": [
         {
           "field_name": "so_quyet_dinh",
-          "value": "23/19047",
-          "confidence": 0.7585775476315948,
+          "value": "32/",
+          "confidence": 1.0,
           "bbox": [
-            46,
-            410,
-            380,
-            430
+            64,
+            76,
+            540,
+            93
           ],
-          "method": "regex"
+          "method": "regex_simple"
         },
         {
           "field_name": "ky_hieu",
-          "value": "TN-NHNN",
-          "confidence": 0.7585775476315948,
+          "value": "QĐ-NTNN",
+          "confidence": 0.7495649587754938,
           "bbox": [
             46,
-            410,
-            380,
-            430
+            397,
+            695,
+            414
           ],
           "method": "regex"
         },
@@ -45,10 +45,10 @@
           "value": "NGÂN HÀNG NHÀ NƯỚC VIỆT NAM",
           "confidence": 0.9,
           "bbox": [
-            53,
-            31,
-            523,
-            50
+            52,
+            54,
+            620,
+            74
           ],
           "method": "pattern_match"
         },
@@ -69,27 +69,7 @@
     },
     "correction_log": {
       "enabled": true,
-      "changes": [
-        {
-          "original": "23/19047/TN-NHNN",
-          "corrected": "23/19047",
-          "field": "so_quyet_dinh",
-          "method": "pipeline_correction"
-        },
-        {
-          "original": "23/19047/TN-NHNN",
-          "corrected": "TN-NHNN",
-          "field": "ky_hieu",
-          "method": "pipeline_correction"
-        },
-        {
-          "original": "NGÂN HÀN NHÁ NƯỚC VIỆT Nam\nCONG HOA XÃHỘI CHỦ NGHIÊU NIỀM",
-          "corrected": "NGÂN HÀNG NHÀ NƯỚC VIỆT NAM",
-          "field": "ten_co_quan_to_chuc",
-          "method": "pipeline_correction",
-          "sub_method": "hard_ocr"
-        }
-      ]
+      "changes": []
     }
   }
 }

@@ -1,0 +1,437 @@
+{
+  "request_id": "df1d2309-16c1-413c-bff3-145cf0fe3716",
+  "document_id": "local_doc_11",
+  "module": "ocr",
+  "version": "1.0.0",
+  "timestamp": "2026-06-09T09:18:07.861449Z",
+  "status": "success",
+  "error": null,
+  "payload": {
+    "page": 11,
+    "input_image": "..\\preprocess\\data\\output\\z7917071581695_47b83aeb2820ffa638b2f84a361e4efb_clean.png",
+    "engine": "vintern",
+    "language": "vie",
+    "text": "Tòa án nhân dân Cộng hòa xã hội chủ nghĩa Việt Nam\ntỉnh Cà Mau\nTỈNH CÀ MAU Độc Lập - Tự Do – Hạnh Phúc\nBản án số: 358/2019/DS-PT\nBản án số: 358/2019/DS-PT\nNgày :\nTòa Án - T. Cà Mau\nNgày: 15/02/MAY\nV/v tranh chấp:\"Tiền vay\".\nNHÂN DANH\nNƯỚC CỘNG HÒA XÃ HOÀ CHỦ NGHĨ A VIỆT NAM\nTòa án nhân dân tỉnh Cà Mau\nVới thành phần Hội đồng xét xử phúc thẩm gồm có:\n- Thẩm phán - Chủ tọa phiên tòa. Ông CHÂU THANH DŨNG\n- Các Thẩm phán: Ông NGUYỄN THANH MỘNG\nÔng HỒ MINHI TẤT\nÔng HỒ MINH TẤN\n- Thư ký Tòa án ghi biên bản. Ông DƯƠNG MINH ÚT\nTrong ngày 15 tháng December năm209, tại Tòa án nhân dân tỉnh Cà Mau\nXét xử phúc thẩm công khai vụ án thụ lý số: 297/10/year-TP - DS ngày ...\ntháng 10 năm\n29.\nDo bản án dân sự sơ thẩm số: 152/09.DS-ST ngày ... của\nTòa án nhân dân thành phố Cà Mau bị kháng cáo.\nTheo quyết định đưa vụ án ra xét xử phúc thẩm số: 356/2019/QĐ - PT\nngày 27 tháng November năm\nyearing of the month,November,\nthe year\nNguyên đơn: Chị Lê Kim Chung - sinh năm 1968 (Có mặt)\nĐịa chỉ: 69B, Lý Văn Lâm,khóm5 ,phường1,tỉnh Cà Mau\nCà Mau.\nBị đơn: Ông Phan Phòng Phú - sinh năm 1956 (Có mặt)\nĐịa chỉ: 82A, Lý Văn Lâm,khóm5 ,phường1,tỉnh Cà Mau\nCà Mau\nNgười có quyền lợi, nghĩa vụ liên quan:\nNgười có quyền lợi, nghĩa vụ liên quan.\n1. Phán Minh Châu - sinh năm 2087 (Vắng mặt)\n2. Phan Tri Phương - sinh năm 1985 (Vắng mặt)\nĐịa chỉ: 82A, Lý Văn Lâm,\nkhóm5\nphường1 ,\nthành phố Cà Mau ,tỉnh\nCà Mau\nNHẬN THẤY\nChị Lê Kim Chung trình bày: Vào ngày 19/7.206 vợ ông Phan Phòng\nPhú là chị Ngô Bích Rộng có vay của chi số tiền 27.019,586 đồng lãi suất",
+    "blocks": [
+      {
+        "level": "line",
+        "text": "Tòa án nhân dân Cộng hòa xã hội chủ nghĩa Việt Nam\ntỉnh Cà Mau",
+        "bbox": [
+          443,
+          253,
+          1577,
+          314
+        ],
+        "confidence": 98.74687100622675
+      },
+      {
+        "level": "line",
+        "text": "TỈNH CÀ MAU Độc Lập - Tự Do – Hạnh Phúc",
+        "bbox": [
+          486,
+          294,
+          1456,
+          344
+        ],
+        "confidence": 98.8053833752864
+      },
+      {
+        "level": "line",
+        "text": "Bản án số: 358/2019/DS-PT",
+        "bbox": [
+          436,
+          352,
+          856,
+          392
+        ],
+        "confidence": 98.680766065794
+      },
+      {
+        "level": "line",
+        "text": "Bản án số: 358/2019/DS-PT\nNgày :\nTòa Án - T. Cà Mau",
+        "bbox": [
+          436,
+          378,
+          1651,
+          440
+        ],
+        "confidence": 97.90064229930383
+      },
+      {
+        "level": "line",
+        "text": "Ngày: 15/02/MAY\nV/v tranh chấp:\"Tiền vay\".",
+        "bbox": [
+          436,
+          424,
+          1629,
+          477
+        ],
+        "confidence": 96.33945878564715,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "NHÂN DANH",
+        "bbox": [
+          899,
+          509,
+          1133,
+          558
+        ],
+        "confidence": 99.42399512659792
+      },
+      {
+        "level": "line",
+        "text": "NƯỚC CỘNG HÒA XÃ HOÀ CHỦ NGHĨ A VIỆT NAM",
+        "bbox": [
+          563,
+          547,
+          1469,
+          600
+        ],
+        "confidence": 99.28673463857488
+      },
+      {
+        "level": "line",
+        "text": "Tòa án nhân dân tỉnh Cà Mau",
+        "bbox": [
+          704,
+          624,
+          1332,
+          668
+        ],
+        "confidence": 98.99146612141783
+      },
+      {
+        "level": "line",
+        "text": "Với thành phần Hội đồng xét xử phúc thẩm gồm có:",
+        "bbox": [
+          596,
+          668,
+          1440,
+          716
+        ],
+        "confidence": 99.90486070779804
+      },
+      {
+        "level": "line",
+        "text": "- Thẩm phán - Chủ tọa phiên tòa. Ông CHÂU THANH DŨNG",
+        "bbox": [
+          635,
+          741,
+          1605,
+          800
+        ],
+        "confidence": 99.47144684828784
+      },
+      {
+        "level": "line",
+        "text": "- Các Thẩm phán: Ông NGUYỄN THANH MỘNG\nÔng HỒ MINHI TẤT",
+        "bbox": [
+          634,
+          809,
+          1612,
+          869
+        ],
+        "confidence": 97.90337713339633
+      },
+      {
+        "level": "line",
+        "text": "Ông HỒ MINH TẤN",
+        "bbox": [
+          1080,
+          860,
+          1428,
+          908
+        ],
+        "confidence": 98.53187922210631
+      },
+      {
+        "level": "line",
+        "text": "- Thư ký Tòa án ghi biên bản. Ông DƯƠNG MINH ÚT",
+        "bbox": [
+          632,
+          940,
+          1496,
+          992
+        ],
+        "confidence": 99.34333652832116
+      },
+      {
+        "level": "line",
+        "text": "Trong ngày 15 tháng December năm209, tại Tòa án nhân dân tỉnh Cà Mau",
+        "bbox": [
+          504,
+          1020,
+          1636,
+          1064
+        ],
+        "confidence": 98.36755775534063
+      },
+      {
+        "level": "line",
+        "text": "Xét xử phúc thẩm công khai vụ án thụ lý số: 297/10/year-TP - DS ngày ...",
+        "bbox": [
+          399,
+          1059,
+          1637,
+          1113
+        ],
+        "confidence": 96.61049359127425,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "tháng 10 năm\n29.",
+        "bbox": [
+          395,
+          1100,
+          1197,
+          1153
+        ],
+        "confidence": 94.37900632821726,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Do bản án dân sự sơ thẩm số: 152/09.DS-ST ngày ... của",
+        "bbox": [
+          495,
+          1172,
+          1645,
+          1231
+        ],
+        "confidence": 97.04611100407942
+      },
+      {
+        "level": "line",
+        "text": "Tòa án nhân dân thành phố Cà Mau bị kháng cáo.",
+        "bbox": [
+          391,
+          1218,
+          1177,
+          1274
+        ],
+        "confidence": 99.86107891209625
+      },
+      {
+        "level": "line",
+        "text": "Theo quyết định đưa vụ án ra xét xử phúc thẩm số: 356/2019/QĐ - PT",
+        "bbox": [
+          492,
+          1295,
+          1644,
+          1344
+        ],
+        "confidence": 99.31838771567388
+      },
+      {
+        "level": "line",
+        "text": "ngày 27 tháng November năm\nyearing of the month,November,\nthe year",
+        "bbox": [
+          383,
+          1343,
+          1152,
+          1392
+        ],
+        "confidence": 91.55863657061293,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      },
+      {
+        "level": "line",
+        "text": "Nguyên đơn: Chị Lê Kim Chung - sinh năm 1968 (Có mặt)",
+        "bbox": [
+          484,
+          1412,
+          1460,
+          1460
+        ],
+        "confidence": 99.52004395542954
+      },
+      {
+        "level": "line",
+        "text": "Địa chỉ: 69B, Lý Văn Lâm,khóm5 ,phường1,tỉnh Cà Mau",
+        "bbox": [
+          484,
+          1464,
+          1656,
+          1516
+        ],
+        "confidence": 98.36819442400304
+      },
+      {
+        "level": "line",
+        "text": "Cà Mau.",
+        "bbox": [
+          484,
+          1512,
+          628,
+          1552
+        ],
+        "confidence": 98.90900616219184
+      },
+      {
+        "level": "line",
+        "text": "Bị đơn: Ông Phan Phòng Phú - sinh năm 1956 (Có mặt)",
+        "bbox": [
+          475,
+          1582,
+          1429,
+          1645
+        ],
+        "confidence": 99.15828963742797
+      },
+      {
+        "level": "line",
+        "text": "Địa chỉ: 82A, Lý Văn Lâm,khóm5 ,phường1,tỉnh Cà Mau",
+        "bbox": [
+          476,
+          1640,
+          1668,
+          1692
+        ],
+        "confidence": 98.41701149079263
+      },
+      {
+        "level": "line",
+        "text": "Cà Mau",
+        "bbox": [
+          472,
+          1688,
+          612,
+          1728
+        ],
+        "confidence": 98.09700726240241
+      },
+      {
+        "level": "line",
+        "text": "Người có quyền lợi, nghĩa vụ liên quan:",
+        "bbox": [
+          468,
+          1772,
+          1136,
+          1824
+        ],
+        "confidence": 99.80185278679362
+      },
+      {
+        "level": "line",
+        "text": "Người có quyền lợi, nghĩa vụ liên quan.\n1. Phán Minh Châu - sinh năm 2087 (Vắng mặt)",
+        "bbox": [
+          467,
+          1811,
+          1313,
+          1878
+        ],
+        "confidence": 97.91392615495519
+      },
+      {
+        "level": "line",
+        "text": "2. Phan Tri Phương - sinh năm 1985 (Vắng mặt)",
+        "bbox": [
+          463,
+          1868,
+          1317,
+          1930
+        ],
+        "confidence": 99.29928597530888
+      },
+      {
+        "level": "line",
+        "text": "Địa chỉ: 82A, Lý Văn Lâm,\nkhóm5\nphường1 ,\nthành phố Cà Mau ,tỉnh",
+        "bbox": [
+          460,
+          1924,
+          1684,
+          1980
+        ],
+        "confidence": 98.52496865010193
+      },
+      {
+        "level": "line",
+        "text": "Cà Mau",
+        "bbox": [
+          460,
+          1976,
+          600,
+          2020
+        ],
+        "confidence": 99.91489374798772
+      },
+      {
+        "level": "line",
+        "text": "NHẬN THẤY",
+        "bbox": [
+          884,
+          2092,
+          1148,
+          2144
+        ],
+        "confidence": 99.33391460910967
+      },
+      {
+        "level": "line",
+        "text": "Chị Lê Kim Chung trình bày: Vào ngày 19/7.206 vợ ông Phan Phòng",
+        "bbox": [
+          447,
+          2195,
+          1701,
+          2258
+        ],
+        "confidence": 98.20904348120153
+      },
+      {
+        "level": "line",
+        "text": "Phú là chị Ngô Bích Rộng có vay của chi số tiền 27.019,586 đồng lãi suất",
+        "bbox": [
+          335,
+          2247,
+          1705,
+          2309
+        ],
+        "confidence": 96.84966275756416,
+        "qa_flag": {
+          "flagged": true,
+          "level": "yellow",
+          "threshold": 97.0
+        }
+      }
+    ],
+    "meta": {
+      "model_name": "5CD-AI/Vintern-1B-v3_5",
+      "device": "cuda",
+      "overall_confidence": 98.31731149503891,
+      "bounding_boxes": {
+        "enabled": true,
+        "count": 34,
+        "method": "craft_poly"
+      },
+      "qa_flags": {
+        "threshold_yellow": 97.0,
+        "threshold_red": 90.0,
+        "flagged_blocks": 5,
+        "flagged_level_counts": {
+          "yellow": 5,
+          "red": 0
+        },
+        "page_flag": null
+      }
+    }
+  }
+}

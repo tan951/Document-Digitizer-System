@@ -1,7 +1,7 @@
 {
-  "request_id": "f9c3b7e1-7b1a-4f0a-a4d2-cc4a23e11001",
-  "document_id": "court_doc_1",
-  "timestamp": "2026-06-12T09:52:57.538895Z",
+  "request_id": "df1d2309-16c1-413c-bff3-145cf0fe3716",
+  "document_id": "local_doc_11",
+  "timestamp": "2026-06-12T09:53:31.678761Z",
   "status": "success",
   "error": null,
   "payload": {
@@ -18,49 +18,49 @@
       "fixed": [
         {
           "field_name": "so_quyet_dinh",
-          "value": "15/2026",
+          "value": "358/2019",
           "confidence": 1.0,
           "bbox": [
-            52,
-            54,
-            620,
-            74
+            436,
+            352,
+            856,
+            392
           ],
           "method": "regex"
         },
         {
           "field_name": "ky_hieu",
-          "value": "QĐ-ST",
+          "value": "DS-PT",
           "confidence": 1.0,
+          "bbox": [
+            436,
+            352,
+            856,
+            392
+          ],
+          "method": "regex"
+        },
+        {
+          "field_name": "ten_co_quan_to_chuc",
+          "value": "TÒA ÁN NHÂN DÂN",
+          "confidence": 0.9,
           "bbox": [
             52,
             54,
             620,
             74
           ],
-          "method": "regex"
-        },
-        {
-          "field_name": "ten_co_quan_to_chuc",
-          "value": "TÒA ÁN NHÂN DÂN THÀNH PHỐ HÀ NỘI",
-          "confidence": 0.9,
-          "bbox": [
-            52,
-            30,
-            620,
-            50
-          ],
           "method": "pattern_match"
         },
         {
           "field_name": "ten_loai_van_ban",
-          "value": "QUYẾT ĐỊNH",
-          "confidence": 0.8,
+          "value": "Bản án số: 358/2019/DS-PT",
+          "confidence": 0.987,
           "bbox": [
-            52,
-            78,
-            620,
-            98
+            436,
+            352,
+            856,
+            392
           ],
           "method": "pattern_match"
         }
@@ -68,37 +68,37 @@
       "dynamic": [
         {
           "field_name": "nguyen_don",
-          "value": "Công ty Cổ phần Đầu tư Hoàng Minh",
+          "value": "Chị Lê Kim Chung",
           "confidence": 1.0,
           "bbox": [
-            55,
-            300,
-            610,
-            320
-          ],
-          "method": "regex_label"
-        },
-        {
-          "field_name": "bi_don",
-          "value": "Công ty TNHH Thương mại An Phát",
-          "confidence": 1.0,
-          "bbox": [
-            55,
-            325,
-            610,
-            345
+            484,
+            1412,
+            1460,
+            1460
           ],
           "method": "regex_label"
         },
         {
           "field_name": "dia_chi",
-          "value": "Số 15 Nguyễn Trãi, quận Thanh Xuân, Hà Nội",
+          "value": "69B, Lý Văn Lâm, khóm 5, phường 1, tỉnh Cà Mau, Cà Mau",
           "confidence": 1.0,
           "bbox": [
-            52,
-            294,
-            620,
-            314
+            484,
+            1464,
+            1656,
+            1516
+          ],
+          "method": "regex_label"
+        },
+        {
+          "field_name": "bi_don",
+          "value": "Ông Phan Phòng Phú",
+          "confidence": 1.0,
+          "bbox": [
+            475,
+            1582,
+            1429,
+            1645
           ],
           "method": "regex_label"
         }
@@ -106,7 +106,15 @@
     },
     "correction_log": {
       "enabled": true,
-      "changes": []
+      "changes": [
+        {
+          "original": "69B, Lý Văn Lâm, khóm 5 , phường 1, tỉnh Cà Mau Cà Mau",
+          "corrected": "69B, Lý Văn Lâm, khóm 5, phường 1, tỉnh Cà Mau, Cà Mau",
+          "field": "dia_chi",
+          "method": "pipeline_correction",
+          "sub_method": "vietnamese_model"
+        }
+      ]
     }
   }
 }

@@ -1,20 +1,16 @@
 {
   "request_id": "9991adb6-c3bd-43aa-a3ba-05ff2173e53e",
   "document_id": "criminal_doc_1",
-  "timestamp": "2026-06-08T09:03:54.564755Z",
+  "timestamp": "2026-06-12T09:53:04.601502Z",
   "status": "success",
   "error": null,
   "payload": {
     "document_type": "toa_an_hinh_su",
     "routing_confidence": 1.0,
-    "field_coverage": 0.78,
+    "field_coverage": 1.0,
     "missing_required_fields": [
       {
         "field": "ngay_thang_nam",
-        "reason": "extraction_failed"
-      },
-      {
-        "field": "toi_danh",
         "reason": "extraction_failed"
       }
     ],
@@ -71,6 +67,30 @@
       ],
       "dynamic": [
         {
+          "field_name": "toi_danh",
+          "value": "trộm cắp tài sản",
+          "confidence": 0.8,
+          "bbox": [
+            52,
+            174,
+            620,
+            194
+          ],
+          "method": "regex_label"
+        },
+        {
+          "field_name": "ten_bi_cao",
+          "value": "Trần Văn Hùng",
+          "confidence": 0.8,
+          "bbox": [
+            52,
+            198,
+            620,
+            218
+          ],
+          "method": "regex_label"
+        },
+        {
           "field_name": "dia_chi",
           "value": "phường Long Bình, thành phố Biên Hòa, tỉnh Đồng Nai",
           "confidence": 1.0,
@@ -93,37 +113,12 @@
             266
           ],
           "method": "regex_label"
-        },
-        {
-          "field_name": "ten_bi_cao",
-          "value": "Trần Văn Hùng",
-          "confidence": 0.706,
-          "bbox": [
-            52,
-            198,
-            620,
-            218
-          ],
-          "method": "gliner_ner"
         }
       ]
     },
     "correction_log": {
       "enabled": true,
-      "changes": [
-        {
-          "original": "102/2026/HS-ST",
-          "corrected": "102/2026",
-          "field": "so_quyet_dinh",
-          "method": "pipeline_correction"
-        },
-        {
-          "original": "102/2026/HS-ST",
-          "corrected": "HS-ST",
-          "field": "ky_hieu",
-          "method": "pipeline_correction"
-        }
-      ]
+      "changes": []
     }
   }
 }

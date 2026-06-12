@@ -2,11 +2,258 @@
   input_dir: "./data/input"
   output_dir: "./data/output"
 
+engine_settings:
+  max_workers_ratio: 1.0  # os.cpu_count() // 2
+  max_workers_cap: 8
+  routing_target_score: 7.0   # [FIX-F] ngưỡng tính conf routing, trước đây hardcode
+  caches:
+    ocr_capacity: 10000
+    route_capacity: 2000
+    correction_capacity: 10000
+
+models:
+  gliner:
+    local_path: "local_models/gliner_multi-v2.1"
+    fallback_hf_id: "urchade/gliner_multi-v2.1"
+    default_threshold: 0.42
+    inference_threshold: 0.25  # [FIX-G] ngưỡng global cho gliner.inference(), trước đây hardcode
+    chunk_size: 250
+  spacy:
+    models_priority: ["vi_core_news_lg", "vi_core_news_sm", "xx_ent_wiki_sm"]
+    disabled_pipes: ["tok2vec", "parser", "tagger", "attribute_ruler", "lemmatizer", "senter", "sentencizer"]
+  symspell:
+    dict_path: "dictionary/Viet74K.txt"
+    pickle_path: "dictionary/symspell_cache.pkl"
+    max_dictionary_edit_distance: 2
+    prefix_length: 7
+  correction:
+    local_path: "local_models/vietnamese-correction-v2"
+    hf_id: "bmd1905/vietnamese-correction-v2"
+    batch_size: 32
+    max_length: 64
+
 extraction:
   value_window_lines: 2
   label_fuzzy_threshold: 0.85
   extra_org_prefixes: []
   min_blocks_threshold: 6
+  header_line_limit: 15          # [FIX-I] giới hạn dòng vùng header để nhận diện fixed fields
+  so_line_boundary: 10           # [FIX-I] ngưỡng dòng xác định "Số:" nằm trong header
+  date_context_window: 5         # [FIX-J] ±n dòng lân cận khi kiểm tra near_so cho ngày
+  cong_hoa_search_window: 15     # [FIX-K] số dòng tìm cơ quan sau dòng CỘNG HÒA
+  spacy_max_chars: 500           # [FIX-L] số ký tự tối đa truyền vào spaCy NER
+  interpolated_line_confidence: 0.8  # [FIX] confidence cho dòng được nội suy bbox
+
+nlp_constants:
+  proper_noun_allowlist: ["minh", "anh", "bình", "dũng", "hòa", "hà", "hùng", "khoa", "long", "mai", "nam", "nga", "nhung", "phong", "phúc", "quân", "thắng", "thu", "thủy", "tiến", "toàn", "trung", "tùng", "tuyến", "út", "xuân", "blhs", "bltths", "bhxh", "bhyt", "tp", "hcm", "tphcm"]
+  legal_document_titles_whitelist: ["QUYẾT ĐỊNH", "THÔNG BÁO", "QUYẾT NGHỊ", "NGHỊ QUYẾT", "THÔNG TƯ", "CÔNG VĂN", "BIÊN BẢN", "BẢN ÁN", "LỆNH", "THÔNG CÁO", "CHỈ THỊ", "NGHỊ ĐỊNH", "THÔNG TƯ LIÊN TỊCH", "HỢP ĐỒNG", "GIẤY CHỨNG NHẬN", "GIẤY PHÉP", "GIẤY ỦY QUYỀN", "THỎA THUẬN", "BIÊN BẢN GHI NHỚ"]
+  org_unit_field_names: ["ten_co_quan_to_chuc", "ten_don_vi", "kinh_gui", "ten_loai_van_ban", "ma_don_vi", "nguoi_ky"]
+  legal_abbreviation_protected: ["TNHH", "CP", "MTV", "BHXH", "UBND", "HĐND", "DNTN", "CTCP"]
+
+  # [FIX-P1-C] Từ khóa noise trên header — trước đây hardcode trong SKIP_RE
+  header_noise_keywords: ["CỘNG HÒA", "ĐỘC LẬP", "TỰ DO", "HẠNH PHÚC"]
+  # [FIX-P1-C] Từ khóa xác định dòng CỘNG HÒA — trước đây hardcode trong regex split
+  cong_hoa_keywords: ["CỘNG HÒA", "CONG HOA"]
+  # [FIX-P1-D] Từ khóa tổ chức mạnh trong header — trước đây hardcode trong strong_header_re
+  strong_org_keywords: ["TÒA ÁN", "ỦY BAN NHÂN DÂN", "UBND", "BHXH", "BẢO HIỂM XÃ HỘI", "NGÂN HÀNG NHÀ NƯỚC"]
+
+  # [FIX-P1-A] Bảng chuyển đổi số chữ → số — trước đây hardcode inline mỗi lần gọi hàm
+  word_to_num:
+    "một": 1
+    "hai": 2
+    "ba": 3
+    "bốn": 4
+    "năm": 5
+    "sáu": 6
+    "bảy": 7
+    "tám": 8
+    "chín": 9
+    "mười": 10
+    "mười một": 11
+    "mười hai": 12
+    "mười ba": 13
+    "mười bốn": 14
+    "mười lăm": 15
+    "mười sáu": 16
+    "mười bảy": 17
+    "mười tám": 18
+    "mười chín": 19
+    "hai mươi": 20
+    "hai mươi mốt": 21
+    "hai mươi hai": 22
+    "hai mươi ba": 23
+    "hai mươi bốn": 24
+    "hai mươi lăm": 25
+    "hai mươi sáu": 26
+    "hai mươi bảy": 27
+    "hai mươi tám": 28
+    "hai mươi chín": 29
+    "ba mươi": 30
+    "ba mươi mốt": 31
+  
+  # Quy tắc Regex dùng chung cho toàn hệ thống pipeline
+  patterns:
+    section_break: "^\\s*(Điều\\s+\\d+|Nội dung|Người đại diện|Tài sản|Kính gửi|Căn cứ|Theo đề nghị)\\b"
+    so_prefix: "(?:Số|S[Ôô6Oo]|SO)\\s*[:\\.]?\\s*"
+    so_van_ban_full: "(?:Số|S[Ôô6Oo]|SO)\\s*[:\\.]?\\s*([\\d]+(?:/[\\d]+)?/[A-ZĐa-zđ][A-ZĐa-zđ0-9\\-]+)"
+    so_van_ban_simple: "(?:Số|S[Ôô6Oo]|SO)\\s*[:\\.]?\\s*(\\d+[\\/]?)\\s*$"
+    van_ban_title: "^(QUYẾT ĐỊNH|THÔNG BÁO|QUYẾT NGHỊ|NGHỊ QUYẾT|THÔNG TƯ|CÔNG VĂN|BIÊN BẢN|BẢN ÁN|LỆNH|THÔNG CÁO|CHỈ THỊ|NGHỊ ĐỊNH|THÔNG TƯ LIÊN TỊCH|HỢP ĐỒNG|GIẤY CHỨNG NHẬN|GIẤY PHÉP|GIẤY ỦY QUYỀN|QUYẾT NGHỊ|THỎA THUẬN|BIÊN BẢN GHI NHỚ|ĐÌNH CHỈ)(?:[\\s\\w\\/\\-\\(\\),\\.]*$|(?=\\s*(?:Số|S[Ôô6Oo]|SO)\\s*[:\\.\\d]))"
+    co_quan_base_prefixes: "TÒA ÁN|CƠ QUAN|ỦY BAN|BAN|TRUNG TÂM|VĂN PHÒNG|SỞ|PHÒNG|CỤC|BỘ|VIỆN|BHXH|BẢO HIỂM XÃ HỘI|BẢO HIỂM Y TẾ|UBND|HĐND|CHI CỤC|TỔNG CỤC|VỤ|BAN QUẢN LÝ|CÔNG TY|DOANH NGHIỆP|HỢP TÁC XÃ|QUỸ|NGÂN HÀNG|NGÂN HÀN|TRƯỜNG|BỆNH VIỆN|TRẠM|ĐỘI|LIÊN ĐOÀN|HỘI|ĐOÀN|TỔNG LIÊN ĐOÀN|HIỆP HỘI|LIÊN HIỆP|CHI NHÁNH|TRUNG ƯƠNG|ĐỊA PHƯƠNG|NHÂN DÂN|CHÍNH PHỦ|THỦ TƯỚNG|BỘ TRƯỞNG|NGÂN HÀNG NHÀ NƯỚC|NGÂN HÀN NHÀ NƯỚC|NGÂN HÀNG|NGÂN HÀN|BHXH|BẢO HIỂM XÃ HỘI|TÒA ÁN"
+    date_signature: "(?:hà\\s+nội|tp\\.?\\s*hồ\\s*chí\\s*minh|tp\\.?\\s*hcm|đà\\s+nẵng|huế|thành\\s+phố\\s+[\\w\\s]+|[\\wÀ-ỹ]{2,20})\\s*,\\s*ngày\\s+"
+    date_deadline_noise: "\\b(trước\\s+ngày|đến\\s+ngày|hạn\\s+nộp|thời\\s+hạn|chậm\\s+đóng|báo\\s+cáo\\s+trước|nộp\\s+trước|hết\\s+hạn)\\b"
+    date_body_noise: "\\b(xét\\s+thấy|căn\\s+cứ\\s+điều|đương\\s+sự|mở\\s+phiên|theo\\s+đề\\s+nghị)\\b"
+    so_line: "(?i)(?:^|\\b)(?:Số|S[Ôô6Oo]|SO)\\s*[:\\.]"
+
+  whitelist_patterns:
+    - name: "date_slash"
+      regex: "\\b\\d{1,2}[\\/\\-\\.]\\d{1,2}[\\/\\-\\.]\\d{2,4}\\b"
+    - name: "date_text"
+      regex: "ngày\\s*\\d{1,2}\\s*tháng\\s*\\d{1,2}\\s*năm\\s*\\d{4}"
+    - name: "so_bhxh"
+      regex: "\\b\\d{10}\\b"
+    - name: "so_van_ban"
+      regex: "\\b\\d+\\/(?:\\d+\\/)?[A-ZĐ][A-ZĐ0-9\\-]+\\b"
+    - name: "ma_don_vi"
+      regex: "\\b(?=.*\\d)[A-Z0-9]{6,10}\\b"
+    - name: "luat_reference"
+      regex: "\\b(?:Điều|Khoản|Điểm)\\s+\\d+[a-z]?\\b"
+    - name: "so_dien_thoai"
+      regex: "\\b0\\d{9,10}\\b"
+
+auto_correction:
+  enabled: true
+  min_words_for_model: 3   # [FIX-H] số từ tối thiểu để gọi correction model, trước đây hardcode
+  ocr_confusions:
+    "O": "0"
+    "o": "0"
+    "l": "1"
+    "I": "1"
+  hard_corrections:
+    "TROM CAP": "TRỘM CẮP"
+    "TR0M CAP": "TRỘM CẮP"
+    "TR0M CÁP": "TRỘM CẮP"
+    "TROMCAP": "TRỘM CẮP"
+    "TRÇN THÞ": "TRẦN THỊ"
+    "Mò Cây Nam": "Mỏ Cày Nam"
+    "THÞ": "THỊ"
+    "ÇN": "ẦN"
+    "NGÂN HÀN": "NGÂN HÀNG"
+    "NHÁ NƯỚC": "NHÀ NƯỚC"
+    "THÀNH PHÓ": "THÀNH PHỐ"
+    "HỒ CHÍ M1NH": "HỒ CHÍ MINH"
+    "VIỆT N4M": "VIỆT NAM"
+    "BẢO HIỂM XÃ HỘl": "BẢO HIỂM XÃ HỘI"
+    "C0NG TY": "CÔNG TY"
+    "CỔ PHÀN": "CỔ PHẦN"
+    "XÃHỘI": "XÃ HỘI"
+    "QUYẾT ĐINH": "QUYẾT ĐỊNH"
+    "Quyêt định": "Quyết định"
+    "CÔNG HÒA": "CỘNG HÒA"
+    "XÃ HÔI": "XÃ HỘI"
+    "ĐỌC LẬP": "ĐỘC LẬP"
+    "TƯ DO": "TỰ DO"
+    "HANH PHÚC": "HẠNH PHÚC"
+    "Đôc lập": "Độc lập"
+    "ĐÌN CHỈ XÉ TỬ": "ĐÌNH CHỈ XÉT XỬ"
+    "CẢ MAU": "CÀ MAU"
+    "NĂM SINH": "NĂM SINH"
+    "t0án": "toán"
+    "T0án": "Toán"
+    "thanh t0án": "thanh toán"
+    "Thanh t0án": "Thanh toán"
+    "h0àng": "hoàng"
+    "H0àng": "Hoàng"
+    "t0an": "toán"
+    "khoản": "khoản"
+    "kh0ản": "khoản"
+    "September": "09"
+    "October": "10"
+    "November": "11"
+    "December": "12"
+    "MAY": "05"
+    "2OO9": "2009"
+    "2O09": "2009"
+    "20O9": "2009"
+    "yearing of the month": ""
+    "the year": ""
+    "yearing": ""
+    "MAU AM": ""
+  abbrev_expansions:
+    "UBND": "Ủy ban nhân dân"
+    "HĐND": "Hội đồng nhân dân"
+    "TP": "Thành phố"
+    "QĐ": "Quyết định"
+    "TT": "Thông tư"
+    "NĐ": "Nghị định"
+  domain_words:
+    "quyết": 5000
+    "định": 5000
+    "bản": 4000
+    "án": 4000
+    "tòa": 4000
+    "bị": 4000
+    "cáo": 4000
+    "blhs": 9000
+    "bltths": 9000
+    "điều": 6000
+    "khoản": 6000
+    "điểm": 5000
+    "tội": 5000
+    "danh": 4000
+    "phạt": 4000
+    "tù": 5000
+    "bhxh": 6000
+    "bảo": 5000
+    "hiểm": 3000
+    "xã": 3000
+    "hội": 3000
+    "ủy": 3000
+    "ban": 3000
+    "nhân": 3000
+    "dân": 3000
+    "nguyễn": 8000
+    "trần": 8000
+    "lê": 8000
+    "phạm": 8000
+    "hoàng": 8000
+    "thị": 7000
+    "văn": 7000
+    "tài": 5000
+    "sản": 5000
+    "minh": 9000
+    "anh": 9000
+    "bình": 8000
+    "hồ": 7000
+    "chí": 7000
+    "thành": 7000
+    "phố": 6000
+    "quận": 6000
+    "huyện": 6000
+    "tỉnh": 6000
+    "phường": 6000
+    "nẵng": 8000
+    "huế": 8000
+    "đồng": 8000
+    "nai": 8000
+    "dương": 8000
+    "hà": 9000
+    "nội": 9000
+    "hải": 8000
+    "phòng": 8000
+    "cần": 8000
+    "thơ": 8000
+    "bắc": 7000
+    "ninh": 7000
+    "giang": 7000
+    "cp": 8000
+    "tnhh": 8000
+    "mtv": 7000
+    "tổng": 7000
+    "cục": 7000
+    "chi": 7000
+    "nhánh": 7000
+    "vụ": 6000
+    "viện": 6000
 
 zero_shot_fields:
   - name: "ten_giam_doc"
@@ -18,232 +265,216 @@ router:
   templates:
     - template_id: "toa_an_hinh_su"
       document_detection:
-        keywords:
-          - "TÒA ÁN NHÂN DÂN"
-          - "BẢN ÁN"
-          - "Bị cáo"
-        regexes:
-          - "BẢN ÁN"
-          - "HÌNH SỰ"
-          - "HS-ST"
-          - "HS-PT"
-        negative_keywords:
-          - "QUYẾT ĐỊNH"
-          - "NGUYÊN ĐƠN"
-          - "BỊ ĐƠN"
-          - "BẢO HIỂM"
-          - "UBND"
-          - "BHXH"
-      required_fields:
-        - "so_quyet_dinh"
-        - "ky_hieu"
-        - "ngay_thang_nam"
-        - "ten_co_quan_to_chuc"
-        - "ten_loai_van_ban"
-        - "ten_bi_cao"
-        - "toi_danh"
-        - "dia_chi"
-        - "gia_tri_tai_san_chiem_doat"
+        keywords: ["TÒA ÁN NHÂN DÂN", "BẢN ÁN", "Bị cáo"]
+        regexes: ["BẢN ÁN", "HÌNH SỰ", "HS-ST", "HS-PT"]
+        negative_keywords: ["QUYẾT ĐỊNH", "NGUYÊN ĐƠN", "BỊ ĐƠN", "BẢO HIỂM", "UBND", "BHXH"]
+      # [FIX] Đã gỡ ngay_thang_nam
+      required_fields: ["so_quyet_dinh", "ky_hieu", "ten_co_quan_to_chuc", "ten_loai_van_ban", "ten_bi_cao", "toi_danh", "dia_chi", "gia_tri_tai_san_chiem_doat"]
 
     - template_id: "toa_an_dan_su"
       document_detection:
-        keywords:
-          - "TÒA ÁN NHÂN DÂN"
-          - "QUYẾT ĐỊNH"
-          - "DS-ST"
-          - "DS-PT"
-        regexes:
-          - "QUYẾT ĐỊNH"
-          - "DÂN SỰ"
-          - "QĐ-ST"
-        negative_keywords:
-          - "BẢN ÁN"
-          - "BỊ CÁO"
-          - "BLHS"
-          - "BẢO HIỂM"
-          - "UBND"
-          - "BHXH"
-      required_fields:
-        - "so_quyet_dinh"
-        - "ky_hieu"
-        - "ngay_thang_nam"
-        - "ten_co_quan_to_chuc"
-        - "ten_loai_van_ban"
-        - "nguyen_don"
-        - "bi_don"
-        - "dia_chi"
-        - "gia_tri_tranh_chap"
+        keywords: ["TÒA ÁN NHÂN DÂN", "QUYẾT ĐỊNH", "DÂN SỰ", "BẢN ÁN"]
+        regexes: ["QUYẾT ĐỊNH", "DÂN SỰ", "QĐ-ST", "DS-ST", "DS-PT", "QĐ-PT"]
+        negative_keywords: ["BLHS", "BẢO HIỂM", "UBND", "BHXH"]
+      # [FIX] Đã gỡ ngay_thang_nam, người đại diện, giá trị tranh chấp (thường xuyên khuyết ở bản án phụ)
+      required_fields: ["so_quyet_dinh", "ky_hieu", "ten_co_quan_to_chuc", "ten_loai_van_ban", "nguyen_don", "bi_don", "dia_chi"]
 
-    - template_id: "bao_hiem"
+    - template_id: "bao_hiem_thong_bao"
       document_detection:
-        keywords:
-          - "BẢO HIỂM XÃ HỘI"
-          - "THÔNG BÁO"
-          - "QUYẾT ĐỊNH"
-        regexes:
-          - "BẢO HIỂM XÃ HỘI"
-          - "THÔNG BÁO"
-          - "QĐ-BHXH"
-        negative_keywords:
-          - "TÒA ÁN"
-          - "BẢN ÁN"
-          - "UBND"
-          - "CÔNG VĂN"
-      required_fields:
-        - "so_quyet_dinh"
-        - "ky_hieu"
-        - "ngay_thang_nam"
-        - "ten_co_quan_to_chuc"
-        - "ten_loai_van_ban"
-        - "so_bhxh"
-        - "ma_don_vi"
-        - "ten_don_vi"
-        - "so_tien"
-        - "thoi_han_dong"
-        - "so_dien_thoai"
-        - "dia_chi"
+        keywords: ["BẢO HIỂM XÃ HỘI", "THÔNG BÁO"]
+        regexes: ["BẢO HIỂM XÃ HỘI", "THÔNG BÁO", "TB-BHXH"]
+        negative_keywords: ["TÒA ÁN", "BẢN ÁN", "UBND", "CÔNG VĂN", "QUYẾT ĐỊNH"]
+      # [FIX] Tách riêng luồng Thông Báo: Đòi hỏi đầy đủ thông tin doanh nghiệp & liên hệ
+      required_fields: ["so_quyet_dinh", "ky_hieu", "ten_co_quan_to_chuc", "ten_loai_van_ban", "ma_don_vi", "ten_don_vi", "so_tien", "thoi_han_dong", "so_dien_thoai", "dia_chi"]
+
+    - template_id: "bao_hiem_quyet_dinh"
+      document_detection:
+        keywords: ["BẢO HIỂM XÃ HỘI", "QUYẾT ĐỊNH"]
+        regexes: ["BẢO HIỂM XÃ HỘI", "QĐ-BHXH"]
+        negative_keywords: ["TÒA ÁN", "BẢN ÁN", "UBND", "CÔNG VĂN", "THÔNG BÁO"]
+      # [FIX] Tách riêng luồng Quyết định BHXH: Rút gọn tối đa các trường bắt buộc
+      required_fields: ["so_quyet_dinh", "ky_hieu", "ten_co_quan_to_chuc", "ten_loai_van_ban", "ten_don_vi"]
 
     - template_id: "ngan_hang"
       document_detection:
-        keywords:
-          - "NGÂN HÀNG NHÀ NƯỚC"
-          - "THÔNG TƯ"
-          - "NHNN"
-        regexes:
-          - "NGÂN HÀNG NHÀ NƯỚC"
-          - "THÔNG TƯ"
-      required_fields:
-        - "so_quyet_dinh"
-        - "ky_hieu"
-        - "ngay_thang_nam"
-        - "ten_co_quan_to_chuc"
-        - "ten_loai_van_ban"
+        keywords: ["NGÂN HÀNG NHÀ NƯỚC", "THÔNG TƯ", "NHNN"]
+        regexes: ["NGÂN HÀNG NHÀ NƯỚC", "THÔNG TƯ"]
+      required_fields: ["so_quyet_dinh", "ky_hieu", "ten_co_quan_to_chuc", "ten_loai_van_ban"]
         
     - template_id: "ubnd"
       document_detection:
-        keywords:
-          - "ỦY BAN NHÂN DÂN"
-          - "UBND"
-          - "CÔNG VĂN"
-        regexes:
-          - "ỦY BAN NHÂN DÂN"
-          - "UBND"
-          - "CÔNG VĂN"
-        negative_keywords:
-          - "TÒA ÁN"
-          - "BẢN ÁN"
-          - "BẢO HIỂM"
-          - "BHXH"
-      required_fields:
-        - "so_quyet_dinh"
-        - "ky_hieu"
-        - "ngay_thang_nam"
-        - "ten_co_quan_to_chuc"
-        - "ten_loai_van_ban"
-        - "kinh_gui"
-        - "trich_yeu"
-        - "nguoi_ky"
+        keywords: ["ỦY BAN NHÂN DÂN", "UBND", "CÔNG VĂN"]
+        regexes: ["ỦY BAN NHÂN DÂN", "UBND", "CÔNG VĂN"]
+        negative_keywords: ["TÒA ÁN", "BẢN ÁN", "BẢO HIỂM", "BHXH"]
+      # [FIX] Đã gỡ ngay_thang_nam và trich_yeu
+      required_fields: ["so_quyet_dinh", "ky_hieu", "ten_co_quan_to_chuc", "ten_loai_van_ban", "kinh_gui"]
 
 fields:
-
-  trich_yeu:
-    label_regexes: ["Về việc", "V/v"]
-    value_strategy: "same_line"
-    correction: true
-    gliner_labels: ["trích yếu", "về việc", "nội dung"]
-    gliner_threshold: 0.38
-
   so_van_ban_ngan_hang:
+    category: "fixed"
+    is_numeric: true
     label_regexes: ["Số:"]
     value_strategy: "same_line"
     value_regexes: ["Số:\\s*([0-9/]+/[A-Z-]+)"]
     correction: false
+    validation:
+      regex: "\\d"
+    presence_check_regex: "(?i)(số|so|s[ôô6oo])\\s*[:\\.]"
 
   so_quyet_dinh:
+    category: "fixed"
+    is_numeric: true
     label_regexes: ["Số:"]
     value_strategy: "same_line"
     value_regexes: ["Số:\\s*([0-9/]+/[A-Z-]+)"]
     correction: false
+    validation:
+      regex: "\\d"
+    presence_check_regex: "(?i)(số|so|s[ôô6oo])\\s*[:\\.]"
 
   ky_hieu:
-    label_regexes:
-      - "\\bKý\\s*hiệu\\b\\s*[:\\-]?\\s*"
-      - "\\bKy\\s*hieu\\b\\s*[:\\-]?\\s*"
+    category: "fixed"
+    is_numeric: true
+    label_regexes: ["\\bKý\\s*hiệu\\b\\s*[:\\-]?\\s*", "\\bKy\\s*hieu\\b\\s*[:\\-]?\\s*"]
     value_strategy: "same_line"
     correction: false
+    validation:
+      min_length: 1
+    presence_check_regex: "(?i)\\b(ký hiệu|ky hieu)\\b"
 
   ngay_thang_nam:
-    label_regexes:
-      - "\\bNgày\\s*tháng\\s*năm\\b\\s*[:\\-]?\\s*"
+    category: "fixed"
+    is_numeric: true
+    label_regexes: ["\\bNgày\\s*tháng\\s*năm\\b\\s*[:\\-]?\\s*"]
     value_strategy: "same_line"
-    value_regexes:
-      - "\\d{1,2}\\s*[-\\/\\.]\\s*\\d{1,2}\\s*[-\\/\\.]\\s*\\d{2,4}"
-      - "\\d{4}\\s*[-\\/\\.]\\s*\\d{1,2}\\s*[-\\/\\.]\\s*\\d{1,2}"
+    value_regexes: ["\\d{1,2}\\s*[-\\/\\.]\\s*\\d{1,2}\\s*[-\\/\\.]\\s*\\d{2,4}", "\\d{4}\\s*[-\\/\\.]\\s*\\d{1,2}\\s*[-\\/\\.]\\s*\\d{1,2}"]
     normalizer: "date_dmy_to_iso"
     correction: false
+    validation:
+      allow_placeholders: ["X", "."]
+      regex: "^\\d{4}-\\d{2}-\\d{2}$"
+      fallback_year_regex: "\\b(19|20)\\d{2}\\b"
+    presence_check_regex: "(?i)\\b(ngày|tháng|năm|\\d{1,2}[\\/\\-]\\d{1,2}[\\/\\-]\\d{2,4})\\b"
 
   ten_co_quan_to_chuc:
+    category: "fixed"
+    is_numeric: false
     label_regexes: ["^Cơ\\s*quan\\s*tổ\\s*chức\\s*[:\\-]?\\s*"]
     value_strategy: "same_line"
     normalizer: "name_strip"
     correction: false
     gliner_labels: ["cơ quan ban hành", "tên cơ quan", "tổ chức ban hành"]
     gliner_threshold: 0.42
+    validation:
+      min_words: 1
+    presence_check_regex: "(?i)(tòa án|ủy ban|bhxh|bảo hiểm|công ty|ngân hàng)"
+    correction_safe_rules:
+      min_similarity: 0.85
 
   ten_loai_van_ban:
+    category: "fixed"
+    is_numeric: false
     label_regexes: []
     value_strategy: "pattern_match"
     correction: true
     gliner_labels: ["loại văn bản", "tên loại văn bản"]
     gliner_threshold: 0.40
+    validation:
+      min_words: 1
+    presence_check_regex: ""
+    # [FIX]: Cấm AI tự ý can thiệp phá hỏng khoảng trắng và cấu trúc số hiệu văn bản
+    correction_safe_rules:
+      skip_model: true
 
   ten_bi_cao:
+    category: "dynamic"
+    is_numeric: false
     label_regexes: ["Bị cáo"]
     value_strategy: "same_line"
     value_regexes: ["Bị cáo[:\\s]*([A-ZÀ-Ỹa-zà-ỹ\\s]+?)(?=,|\\s*sinh|$)"]
     correction: true
     gliner_labels: ["tên bị cáo", "bị cáo", "defendant name"]
     gliner_threshold: 0.45
+    validation:
+      min_words: 2
+    correction_safe_rules:
+      skip_model: true  # Tránh mô hình seq2seq phá hủy cấu trúc tên riêng cưỡng bức
 
   toi_danh:
-    label_regexes: ["Tội danh"]
+    category: "dynamic"
+    is_numeric: false
+    label_regexes: ["Tội danh", "Về tội", "Tội"]
     value_strategy: "same_line"
-    value_regexes: ["Tội danh[:\\s]*(.+?)(?=\\(|theo|$)"]
+    value_regexes: ["(?:Tội danh|Về tội)[:\\s]*(.+?)(?=\\(|theo|$)"]
     correction: true
     gliner_labels: ["tội danh", "tội"]
     gliner_threshold: 0.40
+    validation:
+      min_length: 2
+    correction_safe_rules:
+      min_similarity: 0.72
+      required_phrase_pairs: [["chiếm đoạt", "chiếm đoạt"]]
 
   nguyen_don:
+    category: "dynamic"
+    is_numeric: false
     label_regexes: ["Nguyên đơn[^:]*[:\\-]?\\s*"]
     value_strategy: "same_line"
     correction: true
     gliner_labels: ["nguyên đơn", "người khởi kiện"]
     gliner_threshold: 0.45
+    validation:
+      min_words: 2
+    correction_safe_rules:
+      min_similarity: 0.85
+      skip_model: true
 
   bi_don:
+    category: "dynamic"
+    is_numeric: false
     label_regexes: ["Bị đơn[^:]*[:\\-]?\\s*"]
     value_strategy: "same_line"
     correction: true
     gliner_labels: ["bị đơn", "người bị kiện"]
     gliner_threshold: 0.45
+    validation:
+      min_words: 2
+    correction_safe_rules:
+      min_similarity: 0.85
+      skip_model: true
 
   gia_tri_tranh_chap:
+    category: "dynamic"
+    is_numeric: true
     label_regexes: ["trị giá"]
     value_strategy: "same_line"
     correction: false
     gliner_labels: ["giá trị tranh chấp", "số tiền", "trị giá"]
     gliner_threshold: 0.40
+    validation:
+      regex: "\\d"
+    correction_safe_rules:
+      min_similarity: 0.72
+      check_digit_loss: true
 
   gia_tri_tai_san_chiem_doat:
+    category: "dynamic"
+    is_numeric: true
     label_regexes: ["tài sản chiếm đoạt", "số tiền chiếm đoạt", "trị giá"]
     value_strategy: "same_line"
-    value_regexes:
-      - "(?:tài\\s+sản\\s+chiếm\\s+đoạt|trị\\s+giá)[^0-9]{0,40}([\\d][\\d\\.,\\s]{3,20})"
+    value_regexes: ["(?:tài\\s+sản\\s+chiếm\\s+đoạt|trị\\s+giá)[^0-9]{0,40}([\\d][\\d\\.,\\s]{3,20})"]
     correction: false
     gliner_labels: ["giá trị tài sản chiếm đoạt", "tài sản chiếm đoạt", "số tiền chiếm đoạt"]
     gliner_threshold: 0.40
+    validation:
+      regex: "\\d"
+    correction_safe_rules:
+      min_similarity: 0.72
+      check_digit_loss: true
 
   so_bhxh:
+    category: "dynamic"
+    is_numeric: true
     label_regexes: ["Số sổ BHXH"]
     presence_check_regex: "\\b(bhxh|bảo hiểm xã hội|số sổ)\\b"
     value_strategy: "same_line"
@@ -251,29 +482,52 @@ fields:
     correction: false
     gliner_labels: ["số sổ bhxh", "mã số bhxh", "số bhxh"]
     gliner_threshold: 0.50
+    validation:
+      regex: "^\\d{9,14}$"
+      anti_regexes: ["(?i)(mã số thuế|mst)"]
+      ignore_prefixes: ["0"]
+      allowed_lengths: [10, 11]
 
   ma_don_vi:
+    category: "dynamic"
+    is_numeric: true
     label_regexes: ["Mã đơn vị[^:]*[:\\-]?\\s*"]
     value_strategy: "same_line"
     correction: false
     gliner_labels: ["mã đơn vị", "mã doanh nghiệp"]
     gliner_threshold: 0.50
+    validation:
+      min_length: 3
 
   so_tien:
+    category: "dynamic"
+    is_numeric: true
     label_regexes: ["số tiền"]
     value_strategy: "same_line"
     correction: false
     gliner_labels: ["số tiền", "tổng tiền"]
     gliner_threshold: 0.45
-    
+    validation:
+      regex: "\\d"
+    correction_safe_rules:
+      min_similarity: 0.72
+      check_digit_loss: true
+      required_phrase_pairs: [["thanh toán", "thanh toán"]]
+      
   so_dien_thoai:
+    category: "dynamic"
+    is_numeric: true
     label_regexes: ["Số điện thoại[^:]*[:\\-]?\\s*", "SĐT[^:]*[:\\-]?\\s*"]
     value_strategy: "same_line"
     correction: false
     gliner_labels: ["số điện thoại", "sđt"]
     gliner_threshold: 0.50
+    validation:
+      regex: "\\d"
 
   ho_ten_nguoi_tham_gia:
+    category: "dynamic"
+    is_numeric: false
     label_regexes: ["Họ tên người tham gia[:\\s]*", "Họ và tên[:\\s]*"]
     value_strategy: "same_line"
     value_regexes: ["Họ tên người tham gia[:\\s]*([A-ZÀÁẢÃẠĂẮẶẲẴẶÂẤẦẬẨẪĐ\\s]+?)(?:,|sinh|$)"]
@@ -281,66 +535,108 @@ fields:
     correction: true
     gliner_labels: ["họ tên người tham gia", "họ và tên"]
     gliner_threshold: 0.45
+    validation:
+      min_words: 2
+    correction_safe_rules:
+      skip_model: true
 
   dia_chi:
+    category: "dynamic"
+    is_numeric: false
     label_regexes: ["Địa chỉ[^:]*[:\\-]?\\s*", "Địa chỉ bị đơn[^:]*[:\\-]?\\s*"]
     value_strategy: "next_n_lines"
     next_n_lines: 2
     correction: true
     gliner_labels: ["địa chỉ", "địa chỉ thường trú", "nơi ở"]
     gliner_threshold: 0.40
+    validation:
+      min_length: 5
+    correction_safe_rules:
+      min_similarity: 0.72
+      check_digit_loss: true
 
   noi_dung_tranh_chap:
+    category: "dynamic"
+    is_numeric: false
     label_regexes: ["Nội dung tranh chấp[^:]*[:\\-]?\\s*"]
-    value_strategy: "until_blank"
+    value_strategy: "same_line" 
+    value_regexes: ["Nội dung tranh chấp[:\\s]*(.*)"]
     correction: true
-    gliner_labels: ["nội dung tranh chấp"]
-    gliner_threshold: 0.38
+    validation:
+      min_length: 3
+    # [FIX]: Cấm AI can thiệp để bảo toàn định dạng số tiền (VD: 2.500.000.000) bên trong chuỗi
+    correction_safe_rules:
+      skip_model: true
 
   kinh_gui:
+    category: "dynamic"
+    is_numeric: false
     label_regexes: ["Kính gửi[^:]*[:\\-]?\\s*"]
     value_strategy: "same_line"
     correction: true
     gliner_labels: ["kính gửi", "đơn vị nhận"]
     gliner_threshold: 0.40
+    validation:
+      min_length: 2
 
   trich_yeu:
+    category: "dynamic"
+    is_numeric: false
     label_regexes: ["Về việc[^:]*[:\\-]?\\s*", "V\\/v[^:]*[:\\-]?\\s*"]
     value_strategy: "same_line"
     correction: true
     gliner_labels: ["trích yếu", "về việc", "nội dung"]
     gliner_threshold: 0.38
+    validation:
+      min_length: 2
     
   nguoi_ky:
+    category: "dynamic"
+    is_numeric: false
     label_regexes: []
     presence_check_regex: "\\b(giám đốc|chủ tịch|thẩm phán|thay mặt)\\b"
     value_strategy: "same_line"
     correction: true
     gliner_labels: ["người ký", "chủ tịch", "giám đốc"]
     gliner_threshold: 0.45
+    validation:
+      min_words: 2
+    correction_safe_rules:
+      skip_model: true
 
   ten_don_vi:
+    category: "dynamic"
+    is_numeric: false
     label_regexes: ["Kính gửi[^:]*[:\\-]?\\s*", "Đơn vị[^:]*[:\\-]?\\s*"]
     value_strategy: "same_line"
     correction: true
     gliner_labels: ["tên đơn vị", "doanh nghiệp", "kính gửi"]
     gliner_threshold: 0.42
+    validation:
+      min_length: 2
+    correction_safe_rules:
+      min_similarity: 0.72
 
   thoi_han_dong:
+    category: "dynamic"
+    is_numeric: false
     label_regexes: ["Thời gian chậm đóng[^:]*[:\\-]?\\s*", "từ tháng"]
     value_strategy: "same_line"
     correction: false
     gliner_labels: ["thời gian chậm đóng", "kỳ nộp"]
     gliner_threshold: 0.40
+    validation:
+      min_length: 2
 
-auto_correction:
-  enabled: true
-  ocr_confusions:
-    "O": "0"
-    "o": "0"
-    "l": "1"
-    "I": "1"
-  date:
-    enabled: true
-  number:
-    enabled: true
+  nguoi_dai_dien:
+    category: "dynamic"
+    is_numeric: false
+    label_regexes: ["Người đại diện[^:]*[:\\-]?\\s*"]
+    value_strategy: "same_line"
+    correction: true
+    gliner_labels: ["người đại diện", "đại diện theo pháp luật"]
+    gliner_threshold: 0.45
+    validation:
+      min_words: 2
+    correction_safe_rules:
+      skip_model: true
